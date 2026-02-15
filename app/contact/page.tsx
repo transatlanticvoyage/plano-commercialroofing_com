@@ -95,8 +95,8 @@ export default function Contact() {
               </div>
               <h3 className="font-semibold mb-1">Office</h3>
               <p className="text-sm text-gray-600">
-                1234 Commercial Blvd<br />
-                Plano, TX 75074
+                2929 Custer Rd<br />
+                Plano, TX 75075
               </p>
             </div>
             <div className="text-center">
@@ -313,8 +313,8 @@ export default function Contact() {
             <div className="text-center">
               <h3 className="font-semibold text-lg mb-2">Plano Office</h3>
               <p className="text-gray-600">
-                1234 Commercial Blvd<br />
-                Plano, TX 75074
+                2929 Custer Rd<br />
+                Plano, TX 75075
               </p>
             </div>
             <div className="text-center">

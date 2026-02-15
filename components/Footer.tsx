@@ -84,8 +84,8 @@ export default function Footer() {
               <li className="flex items-start space-x-3">
                 <MapPin className="h-5 w-5 text-primary-400 flex-shrink-0 mt-1" />
                 <span className="text-sm">
-                  1234 Commercial Blvd<br />
-                  Plano, TX 75074
+                  2929 Custer Rd<br />
+                  Plano, TX 75075
                 </span>
               </li>
               <li className="flex items-center space-x-3">

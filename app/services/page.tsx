@@ -2,6 +2,20 @@ import Navigation from '@/components/Navigation'
 import Footer from '@/components/Footer'
 import Link from 'next/link'
 import { Shield, Clock, Award, CheckCircle, Building, ArrowRight, Phone, Wrench, HardHat, AlertTriangle } from 'lucide-react'
+import type { Metadata } from 'next'
+
+export const metadata: Metadata = {
+  title: 'Commercial Roofing Services',
+  description: 'Complete commercial roofing services in Plano & DFW. TPO, EPDM, Modified Bitumen, Metal Roofing installation & repair. 24/7 emergency service. Free estimates.',
+  openGraph: {
+    title: 'Commercial Roofing Services | Plano Commercial Roofing',
+    description: 'Complete commercial roofing services in Plano & DFW. TPO, EPDM, Modified Bitumen, Metal Roofing installation & repair. 24/7 emergency service.',
+    url: 'https://planocommercialroofing.com/services',
+  },
+  alternates: {
+    canonical: 'https://planocommercialroofing.com/services',
+  },
+}
 
 export default function Services() {
   const services = [

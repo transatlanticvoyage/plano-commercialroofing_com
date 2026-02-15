@@ -2,6 +2,20 @@ import Navigation from '@/components/Navigation'
 import Footer from '@/components/Footer'
 import Link from 'next/link'
 import { Shield, Clock, Award, CheckCircle, Building, ArrowRight, Users, HardHat, Star, Target } from 'lucide-react'
+import type { Metadata } from 'next'
+
+export const metadata: Metadata = {
+  title: 'About Us',
+  description: 'Learn about Plano Commercial Roofing - 20+ years of excellence in commercial roofing. GAF Master Elite certified, fully licensed & insured. Serving DFW businesses.',
+  openGraph: {
+    title: 'About Us | Plano Commercial Roofing',
+    description: 'Learn about Plano Commercial Roofing - 20+ years of excellence in commercial roofing. GAF Master Elite certified, fully licensed & insured.',
+    url: 'https://planocommercialroofing.com/about',
+  },
+  alternates: {
+    canonical: 'https://planocommercialroofing.com/about',
+  },
+}
 
 export default function About() {
   return (

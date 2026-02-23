@@ -17,7 +17,7 @@ export const metadata: Metadata = {
     default: "Plano Commercial Roofing | Top Commercial Roofing Contractor in DFW",
     template: "%s | Plano Commercial Roofing"
   },
-  description: "Premier commercial roofing contractor in Plano, TX. Expert TPO, EPDM, metal roofing installation & repair. GAF Master Elite certified. 24/7 emergency service. Call (469) 555-0100",
+  description: "Premier commercial roofing contractor in Plano, TX. Expert TPO, EPDM, metal roofing installation & repair. GAF Master Elite certified. 24/7 emergency service. Call (940) 305-2372",
   keywords: "commercial roofing Plano TX, commercial roof repair, TPO roofing, EPDM roofing, metal roofing, roof replacement Plano, emergency roof repair DFW",
   openGraph: {
     title: "Plano Commercial Roofing | Top Commercial Roofing Contractor in DFW",

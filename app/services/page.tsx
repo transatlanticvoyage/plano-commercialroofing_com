@@ -144,9 +144,9 @@ export default function Services() {
                 Get Free Estimate
                 <ArrowRight className="ml-2 h-5 w-5" />
               </Link>
-              <a href="tel:469-555-0100" className="btn-secondary">
+              <a href="tel:940-305-2372" className="btn-secondary">
                 <Phone className="mr-2 h-5 w-5" />
-                Call (469) 555-0100
+                Call (940) 305-2372
               </a>
             </div>
           </div>
@@ -309,9 +309,9 @@ export default function Services() {
               Schedule Consultation
               <ArrowRight className="ml-2 h-5 w-5" />
             </Link>
-            <a href="tel:469-555-0100" className="btn-secondary bg-transparent text-white border-white hover:bg-white/10">
+            <a href="tel:940-305-2372" className="btn-secondary bg-transparent text-white border-white hover:bg-white/10">
               <Phone className="mr-2 h-5 w-5" />
-              (469) 555-0100
+              (940) 305-2372
             </a>
           </div>
         </div>

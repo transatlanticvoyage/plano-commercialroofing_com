@@ -2,10 +2,10 @@ import type { Metadata } from 'next'
 
 export const metadata: Metadata = {
   title: 'Contact Us',
-  description: 'Contact Plano Commercial Roofing for free roof inspections & estimates. Located at 2929 Custer Rd, Plano TX. Call (469) 555-0100. 24/7 emergency service available.',
+  description: 'Contact Plano Commercial Roofing for free roof inspections & estimates. Located at 2929 Custer Rd, Plano TX. Call (940) 305-2372. 24/7 emergency service available.',
   openGraph: {
     title: 'Contact Us | Plano Commercial Roofing',
-    description: 'Contact Plano Commercial Roofing for free roof inspections & estimates. Located at 2929 Custer Rd, Plano TX. Call (469) 555-0100.',
+    description: 'Contact Plano Commercial Roofing for free roof inspections & estimates. Located at 2929 Custer Rd, Plano TX. Call (940) 305-2372.',
     url: 'https://planocommercialroofing.com/contact',
   },
   alternates: {

@@ -76,8 +76,8 @@ export default function Contact() {
                 <Phone className="h-6 w-6 text-primary-600" />
               </div>
               <h3 className="font-semibold mb-1">Call Us</h3>
-              <a href="tel:469-555-0100" className="text-primary-600 hover:text-primary-700">
-                (469) 555-0100
+              <a href="tel:940-305-2372" className="text-primary-600 hover:text-primary-700">
+                (940) 305-2372
               </a>
             </div>
             <div className="text-center">
@@ -280,7 +280,7 @@ export default function Contact() {
                   to protect your property and minimize damage.
                 </p>
                 <a
-                  href="tel:469-555-0100"
+                  href="tel:940-305-2372"
                   className="inline-flex items-center px-6 py-3 bg-white text-primary-600 font-semibold rounded-lg hover:bg-gray-100 transition-colors"
                 >
                   <Phone className="mr-2 h-5 w-5" />

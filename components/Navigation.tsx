@@ -41,9 +41,9 @@ export default function Navigation() {
               Contact
             </Link>
             <div className="flex items-center space-x-4 ml-4">
-              <a href="tel:469-555-0100" className="flex items-center space-x-2 text-primary-600 font-bold">
+              <a href="tel:940-305-2372" className="flex items-center space-x-2 text-primary-600 font-bold">
                 <Phone className="h-5 w-5" />
-                <span>(469) 555-0100</span>
+                <span>(940) 305-2372</span>
               </a>
               <Link href="/contact" className="btn-primary">
                 Get Free Estimate
@@ -83,9 +83,9 @@ export default function Navigation() {
                 Contact
               </Link>
               <div className="px-4 py-4 border-t border-gray-200">
-                <a href="tel:469-555-0100" className="flex items-center space-x-2 text-primary-600 font-bold mb-4">
+                <a href="tel:940-305-2372" className="flex items-center space-x-2 text-primary-600 font-bold mb-4">
                   <Phone className="h-5 w-5" />
-                  <span>(469) 555-0100</span>
+                  <span>(940) 305-2372</span>
                 </a>
                 <Link href="/contact" className="btn-primary w-full justify-center">
                   Get Free Estimate

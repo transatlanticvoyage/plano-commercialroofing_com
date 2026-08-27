@@ -5,14 +5,13 @@ import Link from 'next/link'
 import { Menu, X, Phone, Mail, MapPin, Clock, Building2 } from 'lucide-react'
 
 // Drives both the desktop nav and the mobile menu.
-// /warranties was removed here — there is no such page and it 404'd.
-// /portfolio is in the same position (no page yet) but was left in place
-// deliberately; remove it too if that page isn't going to be built.
+// /warranties and /portfolio were removed — neither page exists and both
+// 404'd. Re-add them here (and to the footer's Quick Links) if those pages
+// get built.
 const NAV_LINKS = [
   { href: '/', label: 'Home' },
   { href: '/about', label: 'About Us' },
   { href: '/services', label: 'Services' },
-  { href: '/portfolio', label: 'Portfolio' },
   { href: '/contact', label: 'Contact Us' },
 ]
 

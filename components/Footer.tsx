@@ -40,10 +40,11 @@ export default function Footer() {
           <div>
             <h3 className="text-white font-bold text-base mb-5 tracking-wide">Quick Links</h3>
             <ul className="space-y-3 text-sm">
+              {/* /portfolio and /warranties were removed — neither page exists
+                  and both 404'd. Re-add them here (and to NAV_LINKS in
+                  Navigation.tsx) if those pages get built. */}
               {[
                 { href: '/services', label: 'Our Services' },
-                { href: '/portfolio', label: 'Portfolio' },
-                { href: '/warranties', label: 'Warranties' },
                 { href: '/about', label: 'About Us' },
                 { href: '/contact', label: 'Contact' },
               ].map((link) => (
@@ -106,12 +107,12 @@ export default function Footer() {
             <p className="text-sm">
               © {new Date().getFullYear()} Plano Commercial Roofing. All rights reserved.
             </p>
+            {/* /terms was removed alongside /portfolio and /warranties — that
+                page does not exist either and 404'd. Re-add it here if a Terms
+                of Service page gets written. */}
             <div className="flex space-x-6">
               <Link href="/privacy" className="text-sm hover:text-primary-400 transition-colors">
                 Privacy Policy
-              </Link>
-              <Link href="/terms" className="text-sm hover:text-primary-400 transition-colors">
-                Terms of Service
               </Link>
             </div>
           </div>

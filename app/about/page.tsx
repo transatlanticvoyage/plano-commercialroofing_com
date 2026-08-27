@@ -359,8 +359,11 @@ export default function About() {
               Get Your Free Consultation
               <ArrowRight className="ml-2 h-4 w-4" />
             </Link>
-            <Link href="/portfolio" className="btn-secondary">
-              View Our Work
+            {/* Was href="/portfolio" — that page does not exist and 404'd.
+                Repointed to /services rather than dropped, so this CTA keeps
+                its two-button layout. */}
+            <Link href="/services" className="btn-secondary">
+              See Our Services
               <ArrowRight className="ml-2 h-4 w-4" />
             </Link>
           </div>

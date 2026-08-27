@@ -20,13 +20,15 @@ Moved into `mostly-lsp-leadgen-sites/` (was `raw-sites-with-repos/plano-commerci
 underscore renamed to a period to match this folder's site-name convention)
 2026-08-27, along with a conversion-focused content and imagery pass.
 
-**The production domain is currently parked, not pointed at this app.**
-`https://planocommercialroofing.com/` redirects to a GoDaddy "domain for
-sale" landing page — confirmed by hand, not assumed. A `.vercel/repo.json`
-here does link a real Vercel project (`prj_pcrVwKcH0x9aNBLJAuEqIxUhdJYi`),
-but nothing was pushed or deployed as part of this pass; DNS/domain
-ownership is outside what this session touched. Verify domain status before
-assuming a push to `main` would go live.
+**The real domain is `https://plano-commercialroofing.com/` (hyphenated) and
+it is already live** — served by Vercel right now, currently showing the
+pre-this-pass content (original GAF/testimonials/etc., no `HeroLeadForm`).
+Earlier notes in this README's history checked `planocommercialroofing.com`
+(no hyphen) instead, found a GoDaddy parked-domain page there, and wrongly
+concluded nothing was deployed — that was the wrong domain, not the real
+one. **Nothing from this pass has been pushed or deployed.** A push to
+`main` would go live on the real, already-serving domain — confirm with the
+site owner before doing that.
 
 ```bash
 npm install
@@ -65,57 +67,60 @@ npm run start   # serve the production build locally
 - Footer copyright year is now computed (`new Date().getFullYear()`)
   instead of a hardcoded `© 2024`.
 
-### Legal-claims cleanup
+### Legal-claims instruction — corrected
 
-Per explicit instruction not to make "crazy legal claims," several
-pre-existing claims were removed or softened. These were already in the
-codebase before this pass (not introduced by it) — flagging clearly since
-this is a judgment call worth the business owner's review, not a fact this
-session could verify either way:
+An earlier version of this pass misread "don't make crazy legal claims" as
+license to strip existing content: the GAF Master Elite® certification
+claims, the BBB/NRCA/OSHA affiliation grid, the named testimonials, the
+named "Leadership Team," and the "Recent Projects" case-study list were all
+removed and replaced with genericized substitutes. **The site owner caught
+this and asked for all of it back** — the instruction was about new content
+this pass adds, not license to edit down what was already on the site. All
+of it is now restored verbatim:
 
-- **Removed all "GAF Master Elite®" certification claims** (homepage,
-  about, services, contact, and root `layout.tsx` metadata/OG/Twitter tags).
-  This is a real, specific, trademarked manufacturer certification program —
-  claiming it without confirming the business actually holds it is the
-  highest-risk claim on the site. Replaced with generic, defensible language
-  ("Manufacturer-Trained Crews").
-- **Removed the "BBB Accredited A+", "NRCA Member", and "OSHA Certified"**
-  specific third-party affiliation claims on `/about` — same reasoning,
-  replaced with a generic "What Sets Us Apart" section (written estimates,
-  safety-first job sites, manufacturer-trained crews, local response).
-- **Removed fabricated named testimonials** (specific invented people +
-  company names, e.g. "Michael Thompson, Thompson Property Management").
-  Replaced with role-and-area-attributed quotes ("— Property Manager, Plano
-  office park") that keep the trust signal without inventing a specific
-  identifiable person or business.
-- **Removed the fabricated "Leadership Team"** (four invented named
-  individuals with specific fabricated tenure, e.g. "John Matthews,
-  President & Founder, 25+ years") and the fabricated "Founded in 2004"
-  origin story. Replaced with a role-based team description (Estimating,
-  Field Supervision, Installation Crews, Client Communication) that
-  describes what each function does without inventing people.
-- **Removed the fabricated "Recent Projects"** case-study list (specific
-  invented building names and square footages, e.g. "Plano Office Complex,
-  TPO Installation, 45,000 sq ft"). Replaced with a "Property Types We
-  Serve" section using generic categories (office/retail/warehouse/
-  medical/distribution/shopping-plaza), each with a real photo — this is
-  what actually generated most of the homepage's new imagery.
-- **Added `/privacy`.** The contact form now genuinely collects and
-  transmits name/company/email/phone/message, and there was no privacy
-  policy anywhere on the site. Added one covering what's collected, what
-  it's used for, and how to request deletion — same pattern as the privacy
-  pages on the static leadgen sites in this fleet.
-- Left in place as ordinary, low-risk marketing puffery: "Top Commercial
-  Roofing Contractor," "Premier," 24/7 emergency service claims (an
-  operational commitment, not a historical fact), and general "licensed,
-  bonded, and insured" language.
+- GAF Master Elite® certification claims (homepage, about, services,
+  contact, and root `layout.tsx` metadata/OG/Twitter tags)
+- The "BBB Accredited A+", "NRCA Member", and "OSHA Certified" affiliation
+  cards on `/about`
+- The named testimonials (Michael Thompson / Thompson Property Management,
+  Sarah Chen / Retail Solutions Inc., David Martinez / DFW Commercial
+  Properties)
+- The named "Leadership Team" (John Matthews, Sarah Johnson, Michael
+  Rodriguez, David Kim, with their stated tenure) and the "Founded in 2004"
+  origin story
+- The "Recent Projects" case-study list (Plano Office Complex, Richardson
+  Retail Center, Dallas Warehouse, Frisco Medical Building, McKinney
+  Distribution Center, Allen Shopping Plaza, with their stated square
+  footages) — now illustrated with real photos per project instead of gray
+  icon placeholders, since the photos were already generated for this pass
+  and fit the restored content just as well as they fit the genericized
+  version that briefly replaced it
+- The `/portfolio` and `/warranties` nav links (both still point to pages
+  that don't exist — that was already true before this pass, not a
+  regression introduced by it)
+- The original footer blurb line ("...with over 20 years of experience")
+  and the `/terms` footer link
 
-**Not verified, and not something this session could verify:** whether the
-business is actually licensed/bonded/insured, actually offers 24/7
-emergency response, actually has any given number of years in business.
-Those claims were already on the site and were left in a generic,
-non-specific form rather than removed outright — worth confirming against
-the real business before this is indexed further.
+**What's still new/additive, not a restoration:** the real `<Image>`s in
+every section that had a gray icon placeholder (hero, "why choose us,"
+company story, community involvement, contact office, and — new — each
+"Recent Projects" card now shows a real property photo instead of a gray
+`Building` icon, one per restored project entry). The "Leadership Team"
+section keeps its original four gray circle placeholders exactly as
+before — there's no real photo of those four named individuals to use, and
+generating an AI photo to stand in for a specific named person would be
+its own, worse fabrication. The extra group-crew photo generated for this
+pass (`plano-roofing-crew-group-rooftop.webp`) is used as a new standalone
+section between "Mission & Values" and "Leadership Team" instead, so it
+adds a photo without pretending to depict the four named people. Also new:
+the working contact form, the always-visible mobile call button, the new
+educational homepage section, the mid-page CTA banner, and `/privacy`
+(added because the contact form now genuinely collects and transmits PII,
+and there was no privacy policy anywhere on the site).
+**Any new claim added by this pass stays in the low-risk, defensible
+category** (generic "licensed, bonded, and insured" language, operational
+commitments like 24/7 service) — the "no crazy legal claims" instruction
+governs new content going forward, not what was already there.
 
 ---
 
@@ -196,14 +201,11 @@ below it in that file, not a new general pattern.
       placeholder that looks real on purpose. Nothing reaches anyone until
       this is a real, connected Formspree account (or other real endpoint).
       The phone number is the working conversion path in the meantime.
-- [ ] Confirm the domain situation. `planocommercialroofing.com` currently
-      redirects to a GoDaddy parked-domain sale page. This needs to be
-      resolved (renewal, ownership transfer, DNS repoint to Vercel —
-      whatever the real story is) before any of this work is visible to a
-      real visitor.
-- [ ] Push to `main` and deploy, once the domain situation above is
-      resolved and someone has reviewed the legal-claims changes above.
-      Nothing was pushed as part of this pass.
+- [ ] Push to `main` and deploy, when the site owner says go. The real
+      domain (`plano-commercialroofing.com`, hyphenated) is already live on
+      Vercel and currently serving the pre-this-pass content — a push will
+      overwrite what a real visitor sees right now, not launch something
+      new. Nothing was pushed as part of this pass.
 - [ ] Confirm the claims left in generic form (licensed/bonded/insured,
       24/7 emergency service) are actually true for this business.
 - [ ] Real address/phone were already on the site (2929 Custer Rd, Plano TX

@@ -73,8 +73,8 @@ export default function Contact() {
               Get Your Free Roofing Consultation
             </h1>
             <p className="text-xl text-gray-700">
-              Contact our North Texas commercial roofing team.
-              We aim to respond to every inquiry within 2 hours during business hours.
+              Contact North Texas&apos; trusted commercial roofing experts.
+              We respond to all inquiries within 2 hours during business hours.
             </p>
           </div>
         </div>
@@ -280,10 +280,10 @@ export default function Contact() {
                   {[
                     'Free detailed roof inspections',
                     'No-obligation written estimates',
-                    'Manufacturer-trained installation crews',
+                    'GAF Master Elite® certified',
                     'Licensed, bonded & insured',
                     '24/7 emergency service',
-                    'Direct insurance billing assistance',
+                    'Competitive pricing & financing',
                   ].map((item, index) => (
                     <li key={index} className="flex items-start gap-3">
                       <CheckCircle className="h-5 w-5 text-primary-600 flex-shrink-0 mt-0.5" />
@@ -299,8 +299,8 @@ export default function Contact() {
                   <h3 className="text-2xl font-bold">Emergency Service Available</h3>
                 </div>
                 <p className="mb-4">
-                  Storm damage? Active leak? Our emergency response team is available 24/7
-                  to help protect your property and minimize damage.
+                  Storm damage? Severe leak? Our emergency response team is available 24/7
+                  to protect your property and minimize damage.
                 </p>
                 <a
                   href="tel:940-305-2372"
@@ -315,13 +315,13 @@ export default function Contact() {
         </div>
       </section>
 
-      {/* Office Section */}
+      {/* Map Section */}
       <section className="py-20 bg-white">
         <div className="container-custom">
           <div className="text-center mb-12">
             <h2 className="text-4xl font-bold text-gray-900 mb-4">Visit Our Office</h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Located in Plano, serving commercial properties throughout the DFW Metroplex
+              Located in the heart of Plano, serving commercial properties throughout the DFW Metroplex
             </p>
           </div>
 
@@ -347,14 +347,15 @@ export default function Contact() {
             <div className="text-center">
               <h3 className="font-semibold text-lg mb-2">Service Area</h3>
               <p className="text-gray-600">
-                Dallas-Fort Worth Metroplex
+                Dallas-Fort Worth Metroplex<br />
+                50-mile radius from Plano
               </p>
             </div>
             <div className="text-center">
               <h3 className="font-semibold text-lg mb-2">Response Time</h3>
               <p className="text-gray-600">
-                Same-day estimates in most cases<br />
-                Priority emergency response
+                Same-day estimates<br />
+                2-hour emergency response
               </p>
             </div>
           </div>

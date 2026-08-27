@@ -3,7 +3,7 @@ import Footer from '@/components/Footer'
 import HeroLeadForm from '@/components/HeroLeadForm'
 import Link from 'next/link'
 import Image from 'next/image'
-import { Shield, Clock, CheckCircle, ArrowRight, Phone, Wrench, ThermometerSun, Droplets, Wind } from 'lucide-react'
+import { Shield, Award, CheckCircle, ArrowRight, Star, Phone, Wrench, ThermometerSun, Droplets, Wind } from 'lucide-react'
 
 export default function Home() {
   return (
@@ -17,13 +17,13 @@ export default function Home() {
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div>
               <h1 className="text-5xl lg:text-6xl font-bold text-gray-900 mb-6 leading-tight">
-                North Texas&apos;
+                North Texas&apos; Premier
                 <span className="text-primary-600 block">Commercial Roofing</span>
                 Contractor
               </h1>
               <p className="text-xl text-gray-700 mb-8">
-                Protecting businesses across Plano, Dallas, and the DFW Metroplex with
-                roofing systems built for Texas heat, hail, and heavy rain.
+                Protecting businesses across Plano, Dallas, and the DFW Metroplex with superior roofing solutions.
+                20+ years of excellence, 500+ completed projects.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 mb-8">
                 <Link href="/contact" className="btn-primary">
@@ -41,8 +41,8 @@ export default function Home() {
                   <span>Licensed &amp; Insured</span>
                 </div>
                 <div className="flex items-center gap-2">
-                  <Clock className="h-5 w-5 text-primary-600" />
-                  <span>24/7 Emergency Response</span>
+                  <Award className="h-5 w-5 text-primary-600" />
+                  <span>GAF Certified</span>
                 </div>
               </div>
             </div>
@@ -71,19 +71,19 @@ export default function Home() {
         <div className="container-custom">
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-8 text-center">
             <div>
-              <div className="text-2xl font-bold text-primary-600 mb-2">DFW-Based</div>
-              <p className="text-gray-600">Local Roofing Team</p>
+              <div className="text-4xl font-bold text-primary-600 mb-2">500+</div>
+              <p className="text-gray-600">Projects Completed</p>
             </div>
             <div>
-              <div className="text-2xl font-bold text-primary-600 mb-2">Licensed</div>
-              <p className="text-gray-600">&amp; Fully Insured</p>
+              <div className="text-4xl font-bold text-primary-600 mb-2">20+</div>
+              <p className="text-gray-600">Years Experience</p>
             </div>
             <div>
-              <div className="text-2xl font-bold text-primary-600 mb-2">Written</div>
-              <p className="text-gray-600">Warranties on Every Job</p>
+              <div className="text-4xl font-bold text-primary-600 mb-2">100%</div>
+              <p className="text-gray-600">Satisfaction Rate</p>
             </div>
             <div>
-              <div className="text-2xl font-bold text-primary-600 mb-2">24/7</div>
+              <div className="text-4xl font-bold text-primary-600 mb-2">24/7</div>
               <p className="text-gray-600">Emergency Service</p>
             </div>
           </div>
@@ -211,11 +211,11 @@ export default function Home() {
               <div className="space-y-4">
                 {[
                   'Licensed, bonded, and fully insured for your protection',
-                  'Manufacturer-trained crews on every membrane and metal system we install',
-                  'Written warranties on materials and workmanship, explained in plain language',
-                  'Free detailed roof inspections and written estimates',
-                  'A single point of contact from inspection through final walkthrough',
-                  'Direct insurance billing and claim documentation after storm damage',
+                  'GAF Master Elite® certified contractor',
+                  'Comprehensive warranties on all installations',
+                  'Free detailed roof inspections and estimates',
+                  'Dedicated project manager for every job',
+                  'Competitive pricing with flexible financing options',
                 ].map((feature, index) => (
                   <div key={index} className="flex items-start gap-3">
                     <CheckCircle className="h-6 w-6 text-primary-600 flex-shrink-0 mt-0.5" />
@@ -244,76 +244,93 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Property Types We Serve */}
+      {/* Recent Projects */}
       <section className="py-20 bg-gray-50">
         <div className="container-custom">
           <div className="text-center mb-12">
-            <h2 className="text-4xl font-bold text-gray-900 mb-4">Property Types We Serve</h2>
+            <h2 className="text-4xl font-bold text-gray-900 mb-4">Recent Projects</h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Every property type puts different demands on a roof. Here&apos;s the range
-              of commercial buildings we work on across the DFW Metroplex.
+              Showcasing our expertise across various commercial properties in the DFW area.
             </p>
           </div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {[
-              { name: 'Office Complexes', image: 'plano-office-building-commercial-roof', note: 'Multiple HVAC curbs and rooftop penetrations to seal correctly around' },
-              { name: 'Retail Centers', image: 'dfw-retail-center-commercial-roof', note: 'Wide flat roofs where drainage and foot-traffic wear both matter' },
-              { name: 'Warehouses & Distribution', image: 'dfw-warehouse-commercial-roof', note: 'Large membrane spans where seam quality determines lifespan' },
-              { name: 'Medical & Healthcare', image: 'dfw-medical-building-commercial-roof', note: 'Roofs that can’t tolerate surprise leaks over sensitive equipment' },
-              { name: 'Distribution Centers', image: 'dfw-distribution-center-commercial-roof', note: 'High water volume off a large roof needs correctly sized drains' },
-              { name: 'Shopping Plazas', image: 'dfw-shopping-plaza-commercial-roof', note: 'Sectioned roofs shared across multiple tenants and lease lines' },
-            ].map((property, index) => (
+              { name: 'Plano Office Complex', type: 'TPO Installation', size: '45,000 sq ft', image: 'plano-office-building-commercial-roof' },
+              { name: 'Richardson Retail Center', type: 'Metal Roofing', size: '32,000 sq ft', image: 'dfw-retail-center-commercial-roof' },
+              { name: 'Dallas Warehouse', type: 'EPDM Replacement', size: '78,000 sq ft', image: 'dfw-warehouse-commercial-roof' },
+              { name: 'Frisco Medical Building', type: 'Modified Bitumen', size: '28,000 sq ft', image: 'dfw-medical-building-commercial-roof' },
+              { name: 'McKinney Distribution Center', type: 'TPO Restoration', size: '95,000 sq ft', image: 'dfw-distribution-center-commercial-roof' },
+              { name: 'Allen Shopping Plaza', type: 'Emergency Repair', size: '15,000 sq ft', image: 'dfw-shopping-plaza-commercial-roof' },
+            ].map((project, index) => (
               <div key={index} className="bg-white rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-shadow">
                 <div className="relative h-48">
                   <Image
-                    src={`/images/${property.image}.webp`}
-                    alt={`${property.name} rooftop -- a commercial roofing property type served across the Dallas-Fort Worth Metroplex`}
-                    title={`${property.name} rooftop -- a commercial roofing property type served across the Dallas-Fort Worth Metroplex`}
+                    src={`/images/${project.image}.webp`}
+                    alt={`${project.name} -- ${project.type} commercial roofing project in the Dallas-Fort Worth area`}
+                    title={`${project.name} -- ${project.type} commercial roofing project in the Dallas-Fort Worth area`}
                     fill
                     className="object-cover"
                     sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"
                   />
                 </div>
                 <div className="p-6">
-                  <h3 className="text-xl font-semibold text-gray-900 mb-2">{property.name}</h3>
-                  <p className="text-gray-600 text-sm">{property.note}</p>
+                  <h3 className="text-xl font-semibold text-gray-900 mb-2">{project.name}</h3>
+                  <p className="text-gray-600">{project.type}</p>
+                  <p className="text-primary-600 font-semibold">{project.size}</p>
                 </div>
               </div>
             ))}
           </div>
+
+          <div className="text-center mt-12">
+            <Link href="/portfolio" className="btn-secondary">
+              View All Projects
+              <ArrowRight className="ml-2 h-5 w-5" />
+            </Link>
+          </div>
         </div>
       </section>
 
-      {/* What Property Managers Value Most */}
+      {/* Testimonials */}
       <section className="py-20 bg-white">
         <div className="container-custom">
           <div className="text-center mb-12">
-            <h2 className="text-4xl font-bold text-gray-900 mb-4">What Property Managers Value Most</h2>
+            <h2 className="text-4xl font-bold text-gray-900 mb-4">What Our Clients Say</h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              The feedback we hear most often has less to do with the roof itself and
-              more to do with how the project was run.
+              Don&apos;t just take our word for it - hear from property managers and business owners we&apos;ve served.
             </p>
           </div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {[
               {
-                quote: 'Photo updates and a straight answer whenever we called, instead of finding out where things stood only when the invoice arrived.',
-                role: 'Property Manager, Plano office park',
+                name: 'Michael Thompson',
+                company: 'Thompson Property Management',
+                text: 'Outstanding service from start to finish. They completed our 50,000 sq ft TPO installation on time and under budget.',
               },
               {
-                quote: 'The estimate matched the final bill. No surprise line items once the crew was already on the roof.',
-                role: 'Facilities Director, DFW retail portfolio',
+                name: 'Sarah Chen',
+                company: 'Retail Solutions Inc.',
+                text: 'Their emergency response team saved us after storm damage. Professional, fast, and reliable.',
               },
               {
-                quote: 'They walked us through why a repair made more sense than a full replacement instead of upselling the bigger job.',
-                role: 'Operations Manager, North Texas warehouse',
+                name: 'David Martinez',
+                company: 'DFW Commercial Properties',
+                text: 'We&apos;ve used them for multiple properties. Consistently excellent work and great communication.',
               },
-            ].map((item, index) => (
+            ].map((testimonial, index) => (
               <div key={index} className="bg-gray-50 rounded-lg p-6">
-                <p className="text-gray-700 mb-4 italic">&ldquo;{item.quote}&rdquo;</p>
-                <p className="text-sm text-gray-600 font-semibold">{item.role}</p>
+                <div className="flex mb-4">
+                  {[...Array(5)].map((_, i) => (
+                    <Star key={i} className="h-5 w-5 text-yellow-400 fill-current" />
+                  ))}
+                </div>
+                <p className="text-gray-700 mb-4 italic">&ldquo;{testimonial.text}&rdquo;</p>
+                <div>
+                  <p className="font-semibold text-gray-900">{testimonial.name}</p>
+                  <p className="text-sm text-gray-600">{testimonial.company}</p>
+                </div>
               </div>
             ))}
           </div>
@@ -354,8 +371,7 @@ export default function Home() {
             Ready to Protect Your Commercial Property?
           </h2>
           <p className="text-xl text-primary-100 mb-8 max-w-2xl mx-auto">
-            Get a free roof inspection and detailed estimate. No obligations, just a
-            straight answer about what your roof actually needs.
+            Get a free roof inspection and detailed estimate. No obligations, just honest expertise.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link href="/contact" className="btn-primary bg-white text-primary-600 hover:bg-gray-100">

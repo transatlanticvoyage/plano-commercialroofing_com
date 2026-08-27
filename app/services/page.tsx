@@ -11,10 +11,10 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Commercial Roofing Services | Plano Commercial Roofing',
     description: 'Complete commercial roofing services in Plano & DFW. TPO, EPDM, Modified Bitumen, Metal Roofing installation & repair. 24/7 emergency service.',
-    url: 'https://planocommercialroofing.com/services',
+    url: 'https://plano-commercialroofing.com/services',
   },
   alternates: {
-    canonical: 'https://planocommercialroofing.com/services',
+    canonical: 'https://plano-commercialroofing.com/services',
   },
 }
 
@@ -25,14 +25,14 @@ export default function Services() {
       image: 'tpo-roofing-installation-plano',
       description: 'Thermoplastic Polyolefin (TPO) roofing provides exceptional energy efficiency and durability for commercial properties.',
       features: [
-        'Reflective white membrane surface',
+        'Energy Star rated reflective surface',
         'Heat-welded seams for superior waterproofing',
-        'Manufacturer warranties on materials and labor',
+        '15-30 year manufacturer warranties',
         'Resistant to UV radiation and chemical exposure',
         'Ideal for flat and low-slope roofs',
       ],
       benefits: [
-        'Cuts summer cooling load versus a dark roof surface',
+        'Reduces cooling costs by up to 30%',
         'Environmentally friendly and recyclable',
         'Low maintenance requirements',
         'Class A fire rating',
@@ -44,16 +44,16 @@ export default function Services() {
       description: 'Ethylene Propylene Diene Monomer (EPDM) rubber roofing offers proven performance and cost-effectiveness.',
       features: [
         'Exceptional weather resistance',
-        'Flexible across Texas’ wide temperature swings',
-        'Long service life with proper maintenance',
+        'Flexible in extreme temperatures',
+        '20-30 year life expectancy',
         'Available in black or white membranes',
         'Suitable for various roof designs',
       ],
       benefits: [
-        'Cost-effective flat roof solution',
+        'Most cost-effective flat roof solution',
         'Minimal disruption during installation',
-        'Good hail resistance',
-        'Straightforward to repair and maintain',
+        'Excellent hail resistance',
+        'Easy to repair and maintain',
       ]
     },
     {
@@ -65,12 +65,12 @@ export default function Services() {
         'Reinforced with fiberglass or polyester',
         'Granulated cap sheet options',
         'Self-adhering options available',
-        'Strong puncture resistance',
+        'Excellent puncture resistance',
       ],
       benefits: [
-        'Reliable waterproofing across seams and penetrations',
-        'Performs well in high-traffic rooftop areas',
-        'UV-resistant surface options',
+        'Superior waterproofing capabilities',
+        'Performs well in high-traffic areas',
+        'UV resistant surface options',
         'Compatible with various insulation types',
       ]
     },
@@ -79,17 +79,17 @@ export default function Services() {
       image: 'standing-seam-metal-roofing-plano',
       description: 'Standing seam and corrugated metal roofing systems for maximum longevity and minimal maintenance.',
       features: [
-        'Long service life with minimal upkeep',
+        '40-70 year life expectancy',
         'Standing seam and R-panel options',
         'Available in multiple colors and finishes',
-        'Engineered for North Texas wind loads',
-        'Fire-resistant materials',
+        'Wind resistant up to 140 mph',
+        'Fire resistant materials',
       ],
       benefits: [
-        'Low lifecycle cost over the life of the roof',
-        'Energy efficient with cool-roof coating options',
-        'Highly recyclable materials',
-        'Very low ongoing maintenance',
+        'Lowest lifecycle cost',
+        'Energy efficient with cool roof coatings',
+        '100% recyclable materials',
+        'Virtually maintenance-free',
       ]
     },
     {
@@ -97,35 +97,35 @@ export default function Services() {
       image: 'commercial-roof-repair-maintenance-plano',
       description: 'Comprehensive repair services and preventive maintenance programs to maximize your roof investment.',
       features: [
-        'Leak diagnosis and repair',
-        'Scheduled inspection programs',
+        'Emergency leak repairs',
+        'Annual inspection programs',
         'Preventive maintenance contracts',
-        'Warranty-compliant repairs',
+        'Warranty repairs',
         'Storm damage assessment',
       ],
       benefits: [
-        'Extends usable roof life',
-        'Prevents small issues from becoming emergency repairs',
-        'Maintains manufacturer warranty coverage',
-        'Priority scheduling for maintenance-plan clients',
+        'Extends roof lifespan by 5-10 years',
+        'Prevents costly emergency repairs',
+        'Maintains manufacturer warranties',
+        'Priority emergency response',
       ]
     },
     {
       title: '24/7 Emergency Service',
       image: 'emergency-commercial-roof-tarping-plano',
-      description: 'Response team available around the clock for storm damage and urgent roofing emergencies.',
+      description: 'Rapid response team available around the clock for storm damage and urgent roofing emergencies.',
       features: [
-        'Rapid response after severe weather',
+        'Response within 2 hours',
         'Temporary repairs and tarping',
-        'Insurance claim documentation',
+        'Insurance claim assistance',
         'Full restoration services',
-        'Direct insurance billing available',
+        'Direct insurance billing',
       ],
       benefits: [
-        'Minimizes interior water damage',
-        'Protects business operations and inventory',
-        'Photo documentation for your claim',
-        'A real person answers, day or night',
+        'Minimizes interior damage',
+        'Protects business operations',
+        'Professional documentation for claims',
+        'Guaranteed response time',
       ]
     }
   ]
@@ -144,7 +144,7 @@ export default function Services() {
             </h1>
             <p className="text-xl text-gray-700 mb-8">
               Complete roofing solutions for businesses across North Texas. From new installations to emergency repairs,
-              we deliver quality workmanship backed by manufacturer warranties.
+              we deliver quality workmanship backed by industry-leading warranties.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link href="/contact" className="btn-primary">
@@ -175,8 +175,8 @@ export default function Services() {
               <div className="w-16 h-16 bg-primary-100 rounded-full flex items-center justify-center mx-auto mb-4">
                 <Award className="h-8 w-8 text-primary-600" />
               </div>
-              <h3 className="text-xl font-semibold mb-2">Manufacturer-Trained Crews</h3>
-              <p className="text-gray-600">Installed and repaired to the standard your warranty requires</p>
+              <h3 className="text-xl font-semibold mb-2">GAF Master Elite Contractor</h3>
+              <p className="text-gray-600">Top 2% of roofing contractors nationwide</p>
             </div>
             <div className="text-center">
               <div className="w-16 h-16 bg-primary-100 rounded-full flex items-center justify-center mx-auto mb-4">
@@ -253,7 +253,7 @@ export default function Services() {
           <div className="text-center mb-12">
             <h2 className="text-4xl font-bold text-gray-900 mb-4">Our Service Process</h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              From initial consultation to project completion, we follow a consistent process built around clear communication.
+              From initial consultation to project completion, we follow a proven process to ensure exceptional results.
             </p>
           </div>
 
@@ -261,7 +261,7 @@ export default function Services() {
             {[
               { step: '1', title: 'Free Consultation', description: 'Discuss your needs and schedule an on-site inspection' },
               { step: '2', title: 'Detailed Inspection', description: 'Comprehensive roof assessment with photo documentation' },
-              { step: '3', title: 'Written Proposal', description: 'Detailed estimate with multiple options and warranty terms explained' },
+              { step: '3', title: 'Custom Proposal', description: 'Detailed estimate with multiple options and warranties' },
               { step: '4', title: 'Professional Installation', description: 'Expert installation with minimal disruption to your business' },
             ].map((item, index) => (
               <div key={index} className="text-center">
@@ -282,7 +282,7 @@ export default function Services() {
           <div className="text-center mb-12">
             <h2 className="text-4xl font-bold text-gray-900 mb-4">Service Area</h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Serving commercial properties throughout the Dallas-Fort Worth Metroplex
+              Proudly serving commercial properties throughout the Dallas-Fort Worth Metroplex
             </p>
           </div>
 
@@ -308,7 +308,7 @@ export default function Services() {
             Ready to Discuss Your Roofing Project?
           </h2>
           <p className="text-xl text-primary-100 mb-8 max-w-2xl mx-auto">
-            Get a free consultation and detailed estimate from a North Texas commercial roofing team.
+            Get a free consultation and detailed estimate from North Texas&apos; trusted commercial roofing experts.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link href="/contact" className="btn-primary bg-white text-primary-600 hover:bg-gray-100">

@@ -16,7 +16,7 @@ export default function Footer() {
               </div>
             </div>
             <p className="text-sm mb-4">
-              A DFW-based commercial roofing contractor. Licensed, bonded, and insured, serving Plano and the Dallas-Fort Worth Metroplex.
+              North Texas&apos; trusted commercial roofing contractor. Licensed, bonded, and insured with over 20 years of experience.
             </p>
             <div className="flex space-x-4">
               <a href="#" className="text-gray-400 hover:text-primary-400 transition-colors">
@@ -38,6 +38,16 @@ export default function Footer() {
               <li>
                 <Link href="/services" className="hover:text-primary-400 transition-colors">
                   Our Services
+                </Link>
+              </li>
+              <li>
+                <Link href="/portfolio" className="hover:text-primary-400 transition-colors">
+                  Portfolio
+                </Link>
+              </li>
+              <li>
+                <Link href="/warranties" className="hover:text-primary-400 transition-colors">
+                  Warranties
                 </Link>
               </li>
               <li>
@@ -103,6 +113,9 @@ export default function Footer() {
             <div className="flex space-x-4 mt-4 md:mt-0">
               <Link href="/privacy" className="text-sm text-gray-400 hover:text-primary-400 transition-colors">
                 Privacy Policy
+              </Link>
+              <Link href="/terms" className="text-sm text-gray-400 hover:text-primary-400 transition-colors">
+                Terms of Service
               </Link>
             </div>
           </div>

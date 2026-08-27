@@ -6,7 +6,7 @@ export const metadata: Metadata = {
   title: 'Privacy Policy',
   description: 'How Plano Commercial Roofing collects, uses, and protects the information you submit through this website.',
   alternates: {
-    canonical: 'https://planocommercialroofing.com/privacy',
+    canonical: 'https://plano-commercialroofing.com/privacy',
   },
 }
 

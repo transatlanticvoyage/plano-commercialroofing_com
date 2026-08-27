@@ -28,8 +28,14 @@ export default function Navigation() {
             <Link href="/services" className="text-gray-700 hover:text-primary-600 font-medium transition-colors">
               Services
             </Link>
+            <Link href="/portfolio" className="text-gray-700 hover:text-primary-600 font-medium transition-colors">
+              Portfolio
+            </Link>
             <Link href="/about" className="text-gray-700 hover:text-primary-600 font-medium transition-colors">
               About
+            </Link>
+            <Link href="/warranties" className="text-gray-700 hover:text-primary-600 font-medium transition-colors">
+              Warranties
             </Link>
             <Link href="/contact" className="text-gray-700 hover:text-primary-600 font-medium transition-colors">
               Contact
@@ -77,8 +83,14 @@ export default function Navigation() {
               <Link href="/services" className="block px-4 py-2 text-gray-700 hover:bg-primary-50 hover:text-primary-600 font-medium">
                 Services
               </Link>
+              <Link href="/portfolio" className="block px-4 py-2 text-gray-700 hover:bg-primary-50 hover:text-primary-600 font-medium">
+                Portfolio
+              </Link>
               <Link href="/about" className="block px-4 py-2 text-gray-700 hover:bg-primary-50 hover:text-primary-600 font-medium">
                 About
+              </Link>
+              <Link href="/warranties" className="block px-4 py-2 text-gray-700 hover:bg-primary-50 hover:text-primary-600 font-medium">
+                Warranties
               </Link>
               <Link href="/contact" className="block px-4 py-2 text-gray-700 hover:bg-primary-50 hover:text-primary-600 font-medium">
                 Contact

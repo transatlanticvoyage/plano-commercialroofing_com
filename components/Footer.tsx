@@ -16,7 +16,7 @@ export default function Footer() {
               </div>
             </div>
             <p className="text-sm mb-4">
-              North Texas&apos; trusted commercial roofing contractor. Licensed, bonded, and insured with over 20 years of experience.
+              A DFW-based commercial roofing contractor. Licensed, bonded, and insured, serving Plano and the Dallas-Fort Worth Metroplex.
             </p>
             <div className="flex space-x-4">
               <a href="#" className="text-gray-400 hover:text-primary-400 transition-colors">
@@ -38,16 +38,6 @@ export default function Footer() {
               <li>
                 <Link href="/services" className="hover:text-primary-400 transition-colors">
                   Our Services
-                </Link>
-              </li>
-              <li>
-                <Link href="/portfolio" className="hover:text-primary-400 transition-colors">
-                  Portfolio
-                </Link>
-              </li>
-              <li>
-                <Link href="/warranties" className="hover:text-primary-400 transition-colors">
-                  Warranties
                 </Link>
               </li>
               <li>
@@ -108,14 +98,11 @@ export default function Footer() {
         <div className="border-t border-gray-800 mt-8 pt-8">
           <div className="flex flex-col md:flex-row justify-between items-center">
             <p className="text-sm text-gray-400">
-              © 2024 Plano Commercial Roofing. All rights reserved.
+              © {new Date().getFullYear()} Plano Commercial Roofing. All rights reserved.
             </p>
             <div className="flex space-x-4 mt-4 md:mt-0">
               <Link href="/privacy" className="text-sm text-gray-400 hover:text-primary-400 transition-colors">
                 Privacy Policy
-              </Link>
-              <Link href="/terms" className="text-sm text-gray-400 hover:text-primary-400 transition-colors">
-                Terms of Service
               </Link>
             </div>
           </div>

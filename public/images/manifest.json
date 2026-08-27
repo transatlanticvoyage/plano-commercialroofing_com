@@ -1,0 +1,97 @@
+{
+  "ABOUT_COMMUNITY": {
+    "file": "plano-tx-community-commercial-district.webp",
+    "w": 1240,
+    "h": 768
+  },
+  "ABOUT_STORY": {
+    "file": "plano-commercial-roofing-company-story.webp",
+    "w": 1272,
+    "h": 768
+  },
+  "ABOUT_TEAM": {
+    "file": "plano-roofing-crew-group-rooftop.webp",
+    "w": 1376,
+    "h": 732
+  },
+  "CONTACT_OFFICE": {
+    "file": "plano-commercial-roofing-office-exterior.webp",
+    "w": 1376,
+    "h": 757
+  },
+  "CTA_BANNER": {
+    "file": "plano-roofing-crew-inspection-banner.webp",
+    "w": 1189,
+    "h": 768
+  },
+  "HERO": {
+    "file": "plano-commercial-roofing-hero.webp",
+    "w": 1376,
+    "h": 724
+  },
+  "PROP_DISTRIBUTION": {
+    "file": "dfw-distribution-center-commercial-roof.webp",
+    "w": 1251,
+    "h": 768
+  },
+  "PROP_MEDICAL": {
+    "file": "dfw-medical-building-commercial-roof.webp",
+    "w": 1312,
+    "h": 768
+  },
+  "PROP_OFFICE": {
+    "file": "plano-office-building-commercial-roof.webp",
+    "w": 1376,
+    "h": 708
+  },
+  "PROP_RETAIL": {
+    "file": "dfw-retail-center-commercial-roof.webp",
+    "w": 1244,
+    "h": 768
+  },
+  "PROP_SHOPPING": {
+    "file": "dfw-shopping-plaza-commercial-roof.webp",
+    "w": 1314,
+    "h": 768
+  },
+  "PROP_WAREHOUSE": {
+    "file": "dfw-warehouse-commercial-roof.webp",
+    "w": 1376,
+    "h": 711
+  },
+  "SVC_EMERGENCY": {
+    "file": "emergency-commercial-roof-tarping-plano.webp",
+    "w": 1376,
+    "h": 721
+  },
+  "SVC_EPDM": {
+    "file": "epdm-roofing-plano-commercial.webp",
+    "w": 1234,
+    "h": 768
+  },
+  "SVC_METAL": {
+    "file": "standing-seam-metal-roofing-plano.webp",
+    "w": 1376,
+    "h": 702
+  },
+  "SVC_MODIFIED_BITUMEN": {
+    "file": "modified-bitumen-roofing-plano.webp",
+    "w": 1189,
+    "h": 768
+  },
+  "SVC_REPAIR_MAINT": {
+    "file": "commercial-roof-repair-maintenance-plano.webp",
+    "w": 1281,
+    "h": 768
+  },
+  "SVC_TPO": {
+    "file": "tpo-roofing-installation-plano.webp",
+    "w": 1376,
+    "h": 694
+  },
+  "WHY_CHOOSE": {
+    "file": "plano-roofing-crew-project-review.webp",
+    "w": 1295,
+    "h": 768
+  }
+}

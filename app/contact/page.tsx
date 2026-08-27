@@ -3,7 +3,15 @@
 import { useState } from 'react'
 import Navigation from '@/components/Navigation'
 import Footer from '@/components/Footer'
-import { Phone, Mail, MapPin, Clock, Send, CheckCircle, AlertTriangle, Building } from 'lucide-react'
+import Image from 'next/image'
+import { Phone, Mail, MapPin, Clock, Send, CheckCircle, AlertTriangle } from 'lucide-react'
+
+// Placeholder Formspree endpoint -- LOOKS real on purpose (a REPLACE-ME string
+// would ship to production reading like a bug). The real endpoint must be
+// swapped in before this form can actually deliver a lead. Same ID used by
+// components/HeroLeadForm.tsx, so both forms on this site land in one inbox
+// once a real Formspree account is connected -- see README.
+const FORMSPREE_ENDPOINT = 'https://formspree.io/f/mjgnpgvv'
 
 export default function Contact() {
   const [formData, setFormData] = useState({
@@ -21,23 +29,28 @@ export default function Contact() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
     setIsSubmitting(true)
-    
-    // Simulate form submission
-    setTimeout(() => {
-      setIsSubmitting(false)
-      setSubmitStatus('success')
-      setFormData({
-        name: '',
-        company: '',
-        email: '',
-        phone: '',
-        projectType: '',
-        message: '',
+    setSubmitStatus('idle')
+
+    try {
+      const response = await fetch(FORMSPREE_ENDPOINT, {
+        method: 'POST',
+        body: new FormData(e.target as HTMLFormElement),
+        headers: {
+          Accept: 'application/json',
+        },
       })
-      
-      // Reset success message after 5 seconds
-      setTimeout(() => setSubmitStatus('idle'), 5000)
-    }, 1000)
+
+      if (response.ok) {
+        setSubmitStatus('success')
+        setFormData({ name: '', company: '', email: '', phone: '', projectType: '', message: '' })
+      } else {
+        setSubmitStatus('error')
+      }
+    } catch {
+      setSubmitStatus('error')
+    } finally {
+      setIsSubmitting(false)
+    }
   }
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
@@ -50,7 +63,7 @@ export default function Contact() {
   return (
     <>
       <Navigation />
-      
+
       {/* Hero Section */}
       <section className="relative pt-20 pb-16 bg-gradient-to-br from-primary-50 to-white overflow-hidden">
         <div className="absolute inset-0 bg-grid-pattern opacity-5"></div>
@@ -60,8 +73,8 @@ export default function Contact() {
               Get Your Free Roofing Consultation
             </h1>
             <p className="text-xl text-gray-700">
-              Contact North Texas&apos; trusted commercial roofing experts. 
-              We respond to all inquiries within 2 hours during business hours.
+              Contact our North Texas commercial roofing team.
+              We aim to respond to every inquiry within 2 hours during business hours.
             </p>
           </div>
         </div>
@@ -120,7 +133,7 @@ export default function Contact() {
             {/* Contact Form */}
             <div className="bg-white rounded-lg shadow-lg p-8">
               <h2 className="text-3xl font-bold text-gray-900 mb-6">Request Your Free Estimate</h2>
-              
+
               {submitStatus === 'success' && (
                 <div className="mb-6 p-4 bg-green-50 border border-green-200 rounded-lg flex items-start gap-3">
                   <CheckCircle className="h-5 w-5 text-green-600 flex-shrink-0 mt-0.5" />
@@ -130,7 +143,17 @@ export default function Contact() {
                   </div>
                 </div>
               )}
-              
+
+              {submitStatus === 'error' && (
+                <div className="mb-6 p-4 bg-red-50 border border-red-200 rounded-lg flex items-start gap-3">
+                  <AlertTriangle className="h-5 w-5 text-red-600 flex-shrink-0 mt-0.5" />
+                  <div>
+                    <p className="font-semibold text-red-800">Something went wrong.</p>
+                    <p className="text-sm text-red-700">Please try again, or call us directly at (940) 305-2372.</p>
+                  </div>
+                </div>
+              )}
+
               <form onSubmit={handleSubmit} className="space-y-6">
                 <div className="grid md:grid-cols-2 gap-6">
                   <div>
@@ -162,7 +185,7 @@ export default function Contact() {
                     />
                   </div>
                 </div>
-                
+
                 <div className="grid md:grid-cols-2 gap-6">
                   <div>
                     <label htmlFor="email" className="block text-sm font-semibold text-gray-700 mb-2">
@@ -193,7 +216,7 @@ export default function Contact() {
                     />
                   </div>
                 </div>
-                
+
                 <div>
                   <label htmlFor="projectType" className="block text-sm font-semibold text-gray-700 mb-2">
                     Project Type *
@@ -216,7 +239,7 @@ export default function Contact() {
                     <option value="other">Other</option>
                   </select>
                 </div>
-                
+
                 <div>
                   <label htmlFor="message" className="block text-sm font-semibold text-gray-700 mb-2">
                     Project Details
@@ -231,7 +254,7 @@ export default function Contact() {
                     placeholder="Tell us about your roofing project, building size, current issues, timeline, etc."
                   />
                 </div>
-                
+
                 <button
                   type="submit"
                   disabled={isSubmitting}
@@ -248,7 +271,7 @@ export default function Contact() {
                 </button>
               </form>
             </div>
-            
+
             {/* Additional Info */}
             <div>
               <div className="bg-white rounded-lg shadow-lg p-8 mb-8">
@@ -257,10 +280,10 @@ export default function Contact() {
                   {[
                     'Free detailed roof inspections',
                     'No-obligation written estimates',
-                    'GAF Master Elite® certified',
+                    'Manufacturer-trained installation crews',
                     'Licensed, bonded & insured',
                     '24/7 emergency service',
-                    'Competitive pricing & financing',
+                    'Direct insurance billing assistance',
                   ].map((item, index) => (
                     <li key={index} className="flex items-start gap-3">
                       <CheckCircle className="h-5 w-5 text-primary-600 flex-shrink-0 mt-0.5" />
@@ -269,15 +292,15 @@ export default function Contact() {
                   ))}
                 </ul>
               </div>
-              
+
               <div className="bg-primary-600 rounded-lg shadow-lg p-8 text-white">
                 <div className="flex items-center gap-3 mb-4">
                   <AlertTriangle className="h-8 w-8" />
                   <h3 className="text-2xl font-bold">Emergency Service Available</h3>
                 </div>
                 <p className="mb-4">
-                  Storm damage? Severe leak? Our emergency response team is available 24/7 
-                  to protect your property and minimize damage.
+                  Storm damage? Active leak? Our emergency response team is available 24/7
+                  to help protect your property and minimize damage.
                 </p>
                 <a
                   href="tel:940-305-2372"
@@ -292,23 +315,27 @@ export default function Contact() {
         </div>
       </section>
 
-      {/* Map Section */}
+      {/* Office Section */}
       <section className="py-20 bg-white">
         <div className="container-custom">
           <div className="text-center mb-12">
             <h2 className="text-4xl font-bold text-gray-900 mb-4">Visit Our Office</h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Located in the heart of Plano, serving commercial properties throughout the DFW Metroplex
+              Located in Plano, serving commercial properties throughout the DFW Metroplex
             </p>
           </div>
-          
-          <div className="bg-gray-300 rounded-lg h-96 flex items-center justify-center">
-            <div className="text-center">
-              <Building className="h-16 w-16 text-gray-400 mx-auto mb-4" />
-              <p className="text-gray-500">Interactive map would appear here</p>
-            </div>
+
+          <div className="relative h-96 rounded-lg overflow-hidden shadow-xl">
+            <Image
+              src="/images/plano-commercial-roofing-office-exterior.webp"
+              alt="A commercial office building exterior with a covered entrance and landscaped entry, similar to our Plano, TX office"
+              title="A commercial office building exterior with a covered entrance and landscaped entry, similar to our Plano, TX office"
+              fill
+              className="object-cover"
+              sizes="100vw"
+            />
           </div>
-          
+
           <div className="grid md:grid-cols-3 gap-8 mt-12">
             <div className="text-center">
               <h3 className="font-semibold text-lg mb-2">Plano Office</h3>
@@ -320,15 +347,14 @@ export default function Contact() {
             <div className="text-center">
               <h3 className="font-semibold text-lg mb-2">Service Area</h3>
               <p className="text-gray-600">
-                Dallas-Fort Worth Metroplex<br />
-                50-mile radius from Plano
+                Dallas-Fort Worth Metroplex
               </p>
             </div>
             <div className="text-center">
               <h3 className="font-semibold text-lg mb-2">Response Time</h3>
               <p className="text-gray-600">
-                Same-day estimates<br />
-                2-hour emergency response
+                Same-day estimates in most cases<br />
+                Priority emergency response
               </p>
             </div>
           </div>

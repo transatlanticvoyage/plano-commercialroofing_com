@@ -1,7 +1,8 @@
 import Navigation from '@/components/Navigation'
 import Footer from '@/components/Footer'
+import Image from 'next/image'
 import Link from 'next/link'
-import { Shield, Clock, Award, CheckCircle, Building, ArrowRight, Phone, Wrench, HardHat, AlertTriangle } from 'lucide-react'
+import { Shield, Clock, Award, CheckCircle, Building, ArrowRight, Phone } from 'lucide-react'
 import type { Metadata } from 'next'
 
 export const metadata: Metadata = {
@@ -21,16 +22,17 @@ export default function Services() {
   const services = [
     {
       title: 'TPO Roofing Systems',
+      image: 'tpo-roofing-installation-plano',
       description: 'Thermoplastic Polyolefin (TPO) roofing provides exceptional energy efficiency and durability for commercial properties.',
       features: [
-        'Energy Star rated reflective surface',
+        'Reflective white membrane surface',
         'Heat-welded seams for superior waterproofing',
-        '15-30 year manufacturer warranties',
+        'Manufacturer warranties on materials and labor',
         'Resistant to UV radiation and chemical exposure',
         'Ideal for flat and low-slope roofs',
       ],
       benefits: [
-        'Reduces cooling costs by up to 30%',
+        'Cuts summer cooling load versus a dark roof surface',
         'Environmentally friendly and recyclable',
         'Low maintenance requirements',
         'Class A fire rating',
@@ -38,87 +40,92 @@ export default function Services() {
     },
     {
       title: 'EPDM Roofing',
+      image: 'epdm-roofing-plano-commercial',
       description: 'Ethylene Propylene Diene Monomer (EPDM) rubber roofing offers proven performance and cost-effectiveness.',
       features: [
         'Exceptional weather resistance',
-        'Flexible in extreme temperatures',
-        '20-30 year life expectancy',
+        'Flexible across Texas’ wide temperature swings',
+        'Long service life with proper maintenance',
         'Available in black or white membranes',
         'Suitable for various roof designs',
       ],
       benefits: [
-        'Most cost-effective flat roof solution',
+        'Cost-effective flat roof solution',
         'Minimal disruption during installation',
-        'Excellent hail resistance',
-        'Easy to repair and maintain',
+        'Good hail resistance',
+        'Straightforward to repair and maintain',
       ]
     },
     {
       title: 'Modified Bitumen',
+      image: 'modified-bitumen-roofing-plano',
       description: 'Multi-layer roofing system combining asphalt with modifiers for enhanced performance and durability.',
       features: [
         'Multiple application methods available',
         'Reinforced with fiberglass or polyester',
         'Granulated cap sheet options',
         'Self-adhering options available',
-        'Excellent puncture resistance',
+        'Strong puncture resistance',
       ],
       benefits: [
-        'Superior waterproofing capabilities',
-        'Performs well in high-traffic areas',
-        'UV resistant surface options',
+        'Reliable waterproofing across seams and penetrations',
+        'Performs well in high-traffic rooftop areas',
+        'UV-resistant surface options',
         'Compatible with various insulation types',
       ]
     },
     {
       title: 'Metal Roofing',
+      image: 'standing-seam-metal-roofing-plano',
       description: 'Standing seam and corrugated metal roofing systems for maximum longevity and minimal maintenance.',
       features: [
-        '40-70 year life expectancy',
+        'Long service life with minimal upkeep',
         'Standing seam and R-panel options',
         'Available in multiple colors and finishes',
-        'Wind resistant up to 140 mph',
-        'Fire resistant materials',
+        'Engineered for North Texas wind loads',
+        'Fire-resistant materials',
       ],
       benefits: [
-        'Lowest lifecycle cost',
-        'Energy efficient with cool roof coatings',
-        '100% recyclable materials',
-        'Virtually maintenance-free',
+        'Low lifecycle cost over the life of the roof',
+        'Energy efficient with cool-roof coating options',
+        'Highly recyclable materials',
+        'Very low ongoing maintenance',
       ]
     },
     {
       title: 'Roof Repair & Maintenance',
+      image: 'commercial-roof-repair-maintenance-plano',
       description: 'Comprehensive repair services and preventive maintenance programs to maximize your roof investment.',
       features: [
-        'Emergency leak repairs',
-        'Annual inspection programs',
+        'Leak diagnosis and repair',
+        'Scheduled inspection programs',
         'Preventive maintenance contracts',
-        'Warranty repairs',
+        'Warranty-compliant repairs',
         'Storm damage assessment',
       ],
       benefits: [
-        'Extends roof lifespan by 5-10 years',
-        'Prevents costly emergency repairs',
-        'Maintains manufacturer warranties',
-        'Priority emergency response',
+        'Extends usable roof life',
+        'Prevents small issues from becoming emergency repairs',
+        'Maintains manufacturer warranty coverage',
+        'Priority scheduling for maintenance-plan clients',
       ]
     },
     {
       title: '24/7 Emergency Service',
-      description: 'Rapid response team available around the clock for storm damage and urgent roofing emergencies.',
+      image: 'emergency-commercial-roof-tarping-plano',
+      description: 'Response team available around the clock for storm damage and urgent roofing emergencies.',
       features: [
-        'Response within 2 hours',
+        'Rapid response after severe weather',
         'Temporary repairs and tarping',
-        'Insurance claim assistance',
+        'Insurance claim documentation',
         'Full restoration services',
-        'Direct insurance billing',
+        'Direct insurance billing available',
       ],
       benefits: [
-        'Minimizes interior damage',
-        'Protects business operations',
-        'Professional documentation for claims',
-        'Guaranteed response time',
+        'Minimizes interior water damage',
+        'Protects business operations and inventory',
+        'Photo documentation for your claim',
+        'A real person answers, day or night',
       ]
     }
   ]
@@ -126,7 +133,7 @@ export default function Services() {
   return (
     <>
       <Navigation />
-      
+
       {/* Hero Section */}
       <section className="relative pt-20 pb-16 bg-gradient-to-br from-primary-50 to-white overflow-hidden">
         <div className="absolute inset-0 bg-grid-pattern opacity-5"></div>
@@ -136,8 +143,8 @@ export default function Services() {
               Commercial Roofing Services
             </h1>
             <p className="text-xl text-gray-700 mb-8">
-              Complete roofing solutions for businesses across North Texas. From new installations to emergency repairs, 
-              we deliver quality workmanship backed by industry-leading warranties.
+              Complete roofing solutions for businesses across North Texas. From new installations to emergency repairs,
+              we deliver quality workmanship backed by manufacturer warranties.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link href="/contact" className="btn-primary">
@@ -161,15 +168,15 @@ export default function Services() {
               <div className="w-16 h-16 bg-primary-100 rounded-full flex items-center justify-center mx-auto mb-4">
                 <Shield className="h-8 w-8 text-primary-600" />
               </div>
-              <h3 className="text-xl font-semibold mb-2">Fully Licensed & Insured</h3>
+              <h3 className="text-xl font-semibold mb-2">Fully Licensed &amp; Insured</h3>
               <p className="text-gray-600">Complete protection for your property and peace of mind</p>
             </div>
             <div className="text-center">
               <div className="w-16 h-16 bg-primary-100 rounded-full flex items-center justify-center mx-auto mb-4">
                 <Award className="h-8 w-8 text-primary-600" />
               </div>
-              <h3 className="text-xl font-semibold mb-2">GAF Master Elite Contractor</h3>
-              <p className="text-gray-600">Top 2% of roofing contractors nationwide</p>
+              <h3 className="text-xl font-semibold mb-2">Manufacturer-Trained Crews</h3>
+              <p className="text-gray-600">Installed and repaired to the standard your warranty requires</p>
             </div>
             <div className="text-center">
               <div className="w-16 h-16 bg-primary-100 rounded-full flex items-center justify-center mx-auto mb-4">
@@ -189,7 +196,7 @@ export default function Services() {
                     <div className={index % 2 === 1 ? 'lg:order-2' : ''}>
                       <h2 className="text-3xl font-bold text-gray-900 mb-4">{service.title}</h2>
                       <p className="text-lg text-gray-700 mb-6">{service.description}</p>
-                      
+
                       <div className="mb-8">
                         <h3 className="text-xl font-semibold mb-4 text-gray-900">Features</h3>
                         <ul className="space-y-2">
@@ -221,17 +228,16 @@ export default function Services() {
                         </Link>
                       </div>
                     </div>
-                    
+
                     <div className={`relative h-[400px] rounded-lg overflow-hidden shadow-xl ${index % 2 === 1 ? 'lg:order-1' : ''}`}>
-                      <div className="bg-gray-300 w-full h-full flex items-center justify-center">
-                        {index === 5 ? (
-                          <AlertTriangle className="h-32 w-32 text-gray-400" />
-                        ) : index === 4 ? (
-                          <Wrench className="h-32 w-32 text-gray-400" />
-                        ) : (
-                          <HardHat className="h-32 w-32 text-gray-400" />
-                        )}
-                      </div>
+                      <Image
+                        src={`/images/${service.image}.webp`}
+                        alt={`${service.title} on a Dallas-Fort Worth commercial roof`}
+                        title={`${service.title} on a Dallas-Fort Worth commercial roof`}
+                        fill
+                        className="object-cover"
+                        sizes="(min-width: 1024px) 576px, 100vw"
+                      />
                     </div>
                   </div>
                 </div>
@@ -247,15 +253,15 @@ export default function Services() {
           <div className="text-center mb-12">
             <h2 className="text-4xl font-bold text-gray-900 mb-4">Our Service Process</h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              From initial consultation to project completion, we follow a proven process to ensure exceptional results.
+              From initial consultation to project completion, we follow a consistent process built around clear communication.
             </p>
           </div>
-          
+
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
             {[
               { step: '1', title: 'Free Consultation', description: 'Discuss your needs and schedule an on-site inspection' },
               { step: '2', title: 'Detailed Inspection', description: 'Comprehensive roof assessment with photo documentation' },
-              { step: '3', title: 'Custom Proposal', description: 'Detailed estimate with multiple options and warranties' },
+              { step: '3', title: 'Written Proposal', description: 'Detailed estimate with multiple options and warranty terms explained' },
               { step: '4', title: 'Professional Installation', description: 'Expert installation with minimal disruption to your business' },
             ].map((item, index) => (
               <div key={index} className="text-center">
@@ -276,10 +282,10 @@ export default function Services() {
           <div className="text-center mb-12">
             <h2 className="text-4xl font-bold text-gray-900 mb-4">Service Area</h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Proudly serving commercial properties throughout the Dallas-Fort Worth Metroplex
+              Serving commercial properties throughout the Dallas-Fort Worth Metroplex
             </p>
           </div>
-          
+
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 max-w-4xl mx-auto">
             {[
               'Plano', 'Dallas', 'Richardson', 'Allen',
@@ -302,7 +308,7 @@ export default function Services() {
             Ready to Discuss Your Roofing Project?
           </h2>
           <p className="text-xl text-primary-100 mb-8 max-w-2xl mx-auto">
-            Get a free consultation and detailed estimate from North Texas&apos; trusted commercial roofing experts.
+            Get a free consultation and detailed estimate from a North Texas commercial roofing team.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link href="/contact" className="btn-primary bg-white text-primary-600 hover:bg-gray-100">

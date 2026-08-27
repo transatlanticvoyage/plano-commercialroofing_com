@@ -88,13 +88,9 @@ of it is now restored verbatim:
 - The named "Leadership Team" (John Matthews, Sarah Johnson, Michael
   Rodriguez, David Kim, with their stated tenure) and the "Founded in 2004"
   origin story
-- The "Recent Projects" case-study list (Plano Office Complex, Richardson
-  Retail Center, Dallas Warehouse, Frisco Medical Building, McKinney
-  Distribution Center, Allen Shopping Plaza, with their stated square
-  footages) — now illustrated with real photos per project instead of gray
-  icon placeholders, since the photos were already generated for this pass
-  and fit the restored content just as well as they fit the genericized
-  version that briefly replaced it
+- ~~The "Recent Projects" case-study list~~ — restored at that point, then
+  **removed again in the design pass** because the site owner confirmed those
+  projects are bogus. See "Recent Projects removed" below.
 - The `/portfolio` and `/warranties` nav links (both still point to pages
   that don't exist — that was already true before this pass, not a
   regression introduced by it)
@@ -104,8 +100,7 @@ of it is now restored verbatim:
 **What's still new/additive, not a restoration:** the real `<Image>`s in
 every section that had a gray icon placeholder (hero, "why choose us,"
 company story, community involvement, contact office, and — new — each
-"Recent Projects" card now shows a real property photo instead of a gray
-`Building` icon, one per restored project entry). The "Leadership Team"
+company story, community involvement, contact office). The "Leadership Team"
 section keeps its original four gray circle placeholders exactly as
 before — there's no real photo of those four named individuals to use, and
 generating an AI photo to stand in for a specific named person would be
@@ -124,6 +119,63 @@ governs new content going forward, not what was already there.
 
 ---
 
+## Design system
+
+The visual language emulates **commercialroofingpasadena.com** at the site
+owner's request. The defining motifs, all implemented in `app/globals.css`:
+
+| Motif | Where |
+|---|---|
+| Teal + dark-charcoal palette | `@theme` tokens `--color-primary-*` (teal) and `--color-ink-*` (charcoal). Replaced the previous generic sky-blue. |
+| Dark utility bar above the header | `components/Navigation.tsx` — email / address / hours, hidden below `lg` |
+| Logo in a dark block with an angled right edge | `Navigation.tsx`, a `clip-path` polygon |
+| Teal pill call button in the header | `Navigation.tsx` |
+| Angled section dividers | `.angle-bottom` / `.angle-top` / `.angle-both` |
+| Teal-dash eyebrow labels above headings | `.eyebrow`, `.eyebrow-light`, `.eyebrow-center` |
+| Full-bleed photo heroes with a left-weighted scrim | every page hero |
+| Teal quote-form card in the hero | `components/HeroLeadForm.tsx` |
+| Teal CTA band with an angled split over a photo | homepage |
+| Image with a teal corner triangle + stat badge | `.corner-teal`, homepage "#1" block |
+| Faint blueprint wash on dark bands | `.blueprint-bg` |
+
+### Three rendering traps hit while building this — do not undo these
+
+1. **Do not use Tailwind gradient utilities for the hero scrims.** Tailwind v4
+   compiles `from-ink-950/85` and friends to `oklab(... / 0.85)` stops, and the
+   alpha on an oklab gradient stop does not composite correctly here — the
+   gradient paints effectively **opaque**, so the hero photo vanishes behind a
+   flat charcoal block. Diagnosed by hiding the single overlay element and
+   watching the photo reappear. The scrims are therefore written as explicit
+   `rgba()` gradients in inline `style` props. Keep them that way.
+
+2. **The sub-page hero backdrops are CSS `background-image`, not `<Image fill>`.**
+   On `/services`, `/about` and `/contact` the `<Image fill>` backdrop loaded and
+   laid out correctly (`naturalWidth` set, `complete` true, `opacity: 1`, a
+   full-size bounding rect at the right position) yet **never painted** — it
+   stayed invisible even when forced to `z-index: 9999` with a red outline. The
+   identical structure works on the homepage, so this was not worth chasing
+   further: those three backdrops are now plain CSS backgrounds on the section,
+   which renders reliably and needs no `alt` (correct for a decorative
+   backdrop). Content images further down every page still use `<Image>` and
+   work fine.
+
+3. **Use `.btn-white`, never `btn-primary bg-white`.** `.btn-primary` sets
+   `background-color` in `globals.css`, which is defined *after* the Tailwind
+   import and therefore beats the `bg-white` utility — leaving the button
+   teal-on-teal and effectively invisible on the CTA bands.
+
+### "Recent Projects" removed
+
+The homepage "Recent Projects" grid (Plano Office Complex, Richardson Retail
+Center, Dallas Warehouse, Frisco Medical Building, McKinney Distribution
+Center, Allen Shopping Plaza, with their stated square footages) was **removed
+at the site owner's instruction — those projects are bogus.** Everything else
+restored in the previous pass (GAF certification claims, BBB/NRCA/OSHA
+affiliations, named testimonials, the named Leadership Team, "Founded in 2004")
+is still in place and untouched.
+
+---
+
 ## Images — Supernova
 
 Images come from the `/supernova_image_jar` system in the `tregnar` repo.
@@ -138,10 +190,20 @@ prompts      plasma_prompts   (prompt_class=supernova_image_jar,
 in this repo public/images/*.webp
 ```
 
-19 slots, all generated and synced -- **$2.756 total** on
-`google/gemini-3-pro-image-preview` (18 slots at $2.618, plus one HERO
-regeneration at $0.138 -- see gotcha below). All reported `meta=clean`;
-spot-checked with `exiftool -json` on the shipped `.webp` output.
+All generated and synced -- **$4.545 total** across three passes on
+`google/gemini-3-pro-image-preview`: 18 slots at $2.618, one HERO
+regeneration at $0.138 (the black-face gotcha below), then a **13-slot
+re-generation at $1.789** when the first set came back flat, gray and
+overcast and read as dull stock filler on the page. The prompt set's
+`STYLE` constant was rewritten for that third pass toward rich,
+cinematic, golden-hour architectural photography -- **do not revert it to
+"muted realistic color" / flat light,** that is exactly what produced the
+images that had to be redone. All reported `meta=clean`; spot-checked with
+`exiftool -json` on the shipped `.webp` output.
+
+The six `PROP_*` property-type images from the first pass are still in
+`public/images/` but are **no longer referenced by any page** — they
+illustrated the "Recent Projects" grid that has since been removed.
 
 - **Homepage**: 9 images (hero, "why choose us," six property-type cards,
   one mid-page CTA banner).

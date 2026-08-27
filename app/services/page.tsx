@@ -134,26 +134,44 @@ export default function Services() {
     <>
       <Navigation />
 
-      {/* Hero Section */}
-      <section className="relative pt-20 pb-16 bg-gradient-to-br from-primary-50 to-white overflow-hidden">
-        <div className="absolute inset-0 bg-grid-pattern opacity-5"></div>
-        <div className="container-custom pt-16 relative">
-          <div className="max-w-4xl mx-auto text-center">
-            <h1 className="text-5xl lg:text-6xl font-bold text-gray-900 mb-6">
+      {/* Page Hero.
+          Decorative backdrop is a CSS background rather than <Image fill>:
+          the <Image fill> element here loaded and laid out correctly
+          (naturalWidth set, opacity 1, full-size rect) but never actually
+          painted — it stayed invisible even when forced to z-index 9999 with
+          an outline. A CSS background renders reliably and needs no alt text,
+          which is correct for a purely decorative backdrop anyway. Content
+          images further down these pages still use <Image> and work fine. */}
+      <section
+        className="relative bg-ink-900 pt-[150px] lg:pt-[210px] pb-28 lg:pb-36 angle-bottom overflow-hidden bg-cover bg-center"
+        style={{ backgroundImage: `url('/images/standing-seam-metal-roofing-plano.webp')` }}
+      >
+        {/* backdrop is a CSS background on the section -- see note there */}
+        <div
+          className="absolute inset-0"
+          style={{
+            backgroundImage:
+              'linear-gradient(to right, rgba(26,29,35,0.90) 0%, rgba(26,29,35,0.72) 45%, rgba(26,29,35,0.35) 100%)',
+          }}
+        />
+        <div className="container-custom relative">
+          <div className="max-w-3xl">
+            <p className="eyebrow eyebrow-light">What We Do</p>
+            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-white leading-[1.08] mb-6 text-shadow-hero">
               Commercial Roofing Services
             </h1>
-            <p className="text-xl text-gray-700 mb-8">
+            <p className="text-lg text-gray-300 leading-relaxed mb-8">
               Complete roofing solutions for businesses across North Texas. From new installations to emergency repairs,
               we deliver quality workmanship backed by industry-leading warranties.
             </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <div className="flex flex-col sm:flex-row gap-4">
               <Link href="/contact" className="btn-primary">
                 Get Free Estimate
-                <ArrowRight className="ml-2 h-5 w-5" />
+                <ArrowRight className="ml-2 h-4 w-4" />
               </Link>
               <a href="tel:940-305-2372" className="btn-secondary">
-                <Phone className="mr-2 h-5 w-5" />
-                Call (940) 305-2372
+                <Phone className="mr-2 h-4 w-4" />
+                (940) 305-2372
               </a>
             </div>
           </div>
@@ -165,24 +183,24 @@ export default function Services() {
         <div className="container-custom">
           <div className="grid lg:grid-cols-3 gap-8 mb-16">
             <div className="text-center">
-              <div className="w-16 h-16 bg-primary-100 rounded-full flex items-center justify-center mx-auto mb-4">
+              <div className="w-16 h-16 bg-primary-50 rounded-lg flex items-center justify-center mx-auto mb-4">
                 <Shield className="h-8 w-8 text-primary-600" />
               </div>
-              <h3 className="text-xl font-semibold mb-2">Fully Licensed &amp; Insured</h3>
+              <h3 className="text-xl font-bold mb-2">Fully Licensed &amp; Insured</h3>
               <p className="text-gray-600">Complete protection for your property and peace of mind</p>
             </div>
             <div className="text-center">
-              <div className="w-16 h-16 bg-primary-100 rounded-full flex items-center justify-center mx-auto mb-4">
+              <div className="w-16 h-16 bg-primary-50 rounded-lg flex items-center justify-center mx-auto mb-4">
                 <Award className="h-8 w-8 text-primary-600" />
               </div>
-              <h3 className="text-xl font-semibold mb-2">GAF Master Elite Contractor</h3>
+              <h3 className="text-xl font-bold mb-2">GAF Master Elite Contractor</h3>
               <p className="text-gray-600">Top 2% of roofing contractors nationwide</p>
             </div>
             <div className="text-center">
-              <div className="w-16 h-16 bg-primary-100 rounded-full flex items-center justify-center mx-auto mb-4">
+              <div className="w-16 h-16 bg-primary-50 rounded-lg flex items-center justify-center mx-auto mb-4">
                 <Clock className="h-8 w-8 text-primary-600" />
               </div>
-              <h3 className="text-xl font-semibold mb-2">24/7 Emergency Service</h3>
+              <h3 className="text-xl font-bold mb-2">24/7 Emergency Service</h3>
               <p className="text-gray-600">Rapid response when you need it most</p>
             </div>
           </div>
@@ -194,7 +212,8 @@ export default function Services() {
                 <div className="container-custom">
                   <div className="grid lg:grid-cols-2 gap-12 items-center">
                     <div className={index % 2 === 1 ? 'lg:order-2' : ''}>
-                      <h2 className="text-3xl font-bold text-gray-900 mb-4">{service.title}</h2>
+                      <p className="eyebrow">Commercial Roofing</p>
+                      <h2 className="text-3xl lg:text-4xl font-extrabold text-gray-900 mb-4">{service.title}</h2>
                       <p className="text-lg text-gray-700 mb-6">{service.description}</p>
 
                       <div className="mb-8">
@@ -202,7 +221,7 @@ export default function Services() {
                         <ul className="space-y-2">
                           {service.features.map((feature, fIndex) => (
                             <li key={fIndex} className="flex items-start gap-3">
-                              <CheckCircle className="h-5 w-5 text-primary-600 flex-shrink-0 mt-0.5" />
+                              <CheckCircle className="h-5 w-5 text-primary-500 flex-shrink-0 mt-0.5" />
                               <span className="text-gray-700">{feature}</span>
                             </li>
                           ))}
@@ -214,7 +233,7 @@ export default function Services() {
                         <div className="grid sm:grid-cols-2 gap-3">
                           {service.benefits.map((benefit, bIndex) => (
                             <div key={bIndex} className="flex items-start gap-2">
-                              <ArrowRight className="h-4 w-4 text-primary-600 flex-shrink-0 mt-0.5" />
+                              <ArrowRight className="h-4 w-4 text-primary-500 flex-shrink-0 mt-0.5" />
                               <span className="text-sm text-gray-700">{benefit}</span>
                             </div>
                           ))}
@@ -251,8 +270,8 @@ export default function Services() {
       <section className="py-20 bg-white">
         <div className="container-custom">
           <div className="text-center mb-12">
-            <h2 className="text-4xl font-bold text-gray-900 mb-4">Our Service Process</h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+            <h2 className="text-3xl lg:text-[2.6rem] font-extrabold text-gray-900 leading-tight mb-4">Our Service Process</h2>
+            <p className="text-lg text-gray-600 max-w-3xl mx-auto">
               From initial consultation to project completion, we follow a proven process to ensure exceptional results.
             </p>
           </div>
@@ -265,10 +284,10 @@ export default function Services() {
               { step: '4', title: 'Professional Installation', description: 'Expert installation with minimal disruption to your business' },
             ].map((item, index) => (
               <div key={index} className="text-center">
-                <div className="w-16 h-16 bg-primary-600 text-white rounded-full flex items-center justify-center text-2xl font-bold mx-auto mb-4">
+                <div className="w-16 h-16 bg-primary-500 text-white rounded-full flex items-center justify-center text-2xl font-extrabold mx-auto mb-4">
                   {item.step}
                 </div>
-                <h3 className="text-xl font-semibold mb-2">{item.title}</h3>
+                <h3 className="text-xl font-bold mb-2">{item.title}</h3>
                 <p className="text-gray-600">{item.description}</p>
               </div>
             ))}
@@ -280,8 +299,8 @@ export default function Services() {
       <section className="py-20 bg-gray-50">
         <div className="container-custom">
           <div className="text-center mb-12">
-            <h2 className="text-4xl font-bold text-gray-900 mb-4">Service Area</h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+            <h2 className="text-3xl lg:text-[2.6rem] font-extrabold text-gray-900 leading-tight mb-4">Service Area</h2>
+            <p className="text-lg text-gray-600 max-w-3xl mx-auto">
               Proudly serving commercial properties throughout the Dallas-Fort Worth Metroplex
             </p>
           </div>
@@ -292,8 +311,8 @@ export default function Services() {
               'Frisco', 'McKinney', 'Garland', 'Carrollton',
               'Lewisville', 'Irving', 'Arlington', 'Fort Worth',
             ].map((city, index) => (
-              <div key={index} className="bg-white rounded-lg p-4 text-center shadow-md">
-                <Building className="h-6 w-6 text-primary-600 mx-auto mb-2" />
+              <div key={index} className="bg-white rounded-lg p-5 text-center shadow-sm hover:shadow-lg transition-shadow border-b-2 border-transparent hover:border-primary-500">
+                <Building className="h-6 w-6 text-primary-500 mx-auto mb-2" />
                 <p className="font-semibold text-gray-900">{city}</p>
               </div>
             ))}
@@ -302,21 +321,27 @@ export default function Services() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-20 bg-primary-600">
-        <div className="container-custom text-center">
-          <h2 className="text-4xl font-bold text-white mb-4">
+      <section className="relative py-20 lg:py-24 bg-primary-600 overflow-hidden">
+        <Image
+          src="/images/plano-roofing-crew-inspection-banner.webp"
+          alt="A technician inspecting a membrane seam on a wide commercial rooftop"
+          title="A technician inspecting a membrane seam on a wide commercial rooftop"
+          fill sizes="100vw" className="object-cover opacity-15"
+        />
+        <div className="container-custom relative text-center">
+          <h2 className="text-3xl lg:text-[2.6rem] font-extrabold text-white leading-tight mb-4">
             Ready to Discuss Your Roofing Project?
           </h2>
-          <p className="text-xl text-primary-100 mb-8 max-w-2xl mx-auto">
+          <p className="text-lg text-primary-50 mb-9 max-w-2xl mx-auto">
             Get a free consultation and detailed estimate from North Texas&apos; trusted commercial roofing experts.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link href="/contact" className="btn-primary bg-white text-primary-600 hover:bg-gray-100">
+            <Link href="/contact" className="btn-white">
               Schedule Consultation
-              <ArrowRight className="ml-2 h-5 w-5" />
+              <ArrowRight className="ml-2 h-4 w-4" />
             </Link>
-            <a href="tel:940-305-2372" className="btn-secondary bg-transparent text-white border-white hover:bg-white/10">
-              <Phone className="mr-2 h-5 w-5" />
+            <a href="tel:940-305-2372" className="btn-secondary">
+              <Phone className="mr-2 h-4 w-4" />
               (940) 305-2372
             </a>
           </div>

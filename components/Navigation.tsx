@@ -2,64 +2,95 @@
 
 import { useState } from 'react'
 import Link from 'next/link'
-import { Menu, X, Phone, Building2 } from 'lucide-react'
+import { Menu, X, Phone, Mail, MapPin, Clock, Building2 } from 'lucide-react'
+
+const NAV_LINKS = [
+  { href: '/', label: 'Home' },
+  { href: '/about', label: 'About Us' },
+  { href: '/services', label: 'Services' },
+  { href: '/portfolio', label: 'Portfolio' },
+  { href: '/warranties', label: 'Warranties' },
+  { href: '/contact', label: 'Contact Us' },
+]
 
 export default function Navigation() {
   const [isOpen, setIsOpen] = useState(false)
 
   return (
-    <nav className="fixed w-full bg-white shadow-lg z-50">
-      <div className="container-custom">
-        <div className="flex justify-between items-center h-20">
-          {/* Logo */}
-          <Link href="/" className="flex items-center space-x-2">
-            <Building2 className="h-8 w-8 text-primary-600" />
-            <div className="flex flex-col">
-              <span className="text-xl font-bold text-gray-900">Plano</span>
-              <span className="text-xs text-primary-600 font-semibold -mt-1">COMMERCIAL ROOFING</span>
-            </div>
+    <header className="fixed w-full z-50">
+      {/* Utility bar -- email / address / hours, hidden on small screens */}
+      <div className="hidden lg:block bg-ink-900 text-gray-300">
+        <div className="container-custom">
+          <div className="flex items-center justify-center gap-8 h-11 text-[13px]">
+            <a
+              href="mailto:info@planocommercialroofing.com"
+              className="flex items-center gap-2 hover:text-primary-300 transition-colors"
+            >
+              <Mail className="h-4 w-4 text-primary-400" />
+              info@planocommercialroofing.com
+            </a>
+            <span className="h-4 w-px bg-white/15" />
+            <span className="flex items-center gap-2">
+              <MapPin className="h-4 w-4 text-primary-400" />
+              2929 Custer Rd, Plano, TX 75075
+            </span>
+            <span className="h-4 w-px bg-white/15" />
+            <span className="flex items-center gap-2">
+              <Clock className="h-4 w-4 text-primary-400" />
+              Mon&ndash;Fri: 7AM&ndash;6PM &middot; Emergency 24/7
+            </span>
+          </div>
+        </div>
+      </div>
+
+      {/* Main bar */}
+      <div className="bg-white shadow-lg">
+        <div className="flex items-stretch">
+          {/* Logo sits in a dark block with an angled right edge */}
+          <Link
+            href="/"
+            className="relative flex items-center gap-3 bg-ink-900 pl-6 sm:pl-10 pr-10 sm:pr-16 py-4
+                       [clip-path:polygon(0_0,100%_0,calc(100%-2.25rem)_100%,0_100%)]"
+          >
+            <Building2 className="h-8 w-8 text-primary-400 flex-shrink-0" />
+            <span className="flex flex-col leading-none">
+              <span className="text-xl font-extrabold text-white tracking-tight">Plano</span>
+              <span className="text-[10px] text-primary-400 font-bold tracking-[0.16em] mt-1">
+                COMMERCIAL ROOFING
+              </span>
+            </span>
           </Link>
 
-          {/* Desktop Menu */}
-          <div className="hidden lg:flex items-center space-x-8">
-            <Link href="/" className="text-gray-700 hover:text-primary-600 font-medium transition-colors">
-              Home
-            </Link>
-            <Link href="/services" className="text-gray-700 hover:text-primary-600 font-medium transition-colors">
-              Services
-            </Link>
-            <Link href="/portfolio" className="text-gray-700 hover:text-primary-600 font-medium transition-colors">
-              Portfolio
-            </Link>
-            <Link href="/about" className="text-gray-700 hover:text-primary-600 font-medium transition-colors">
-              About
-            </Link>
-            <Link href="/warranties" className="text-gray-700 hover:text-primary-600 font-medium transition-colors">
-              Warranties
-            </Link>
-            <Link href="/contact" className="text-gray-700 hover:text-primary-600 font-medium transition-colors">
-              Contact
-            </Link>
-            <div className="flex items-center space-x-4 ml-4">
-              <a
-                href="tel:940-305-2372"
-                className="flex items-center space-x-2 bg-primary-600 text-white font-bold px-4 py-2 rounded-lg hover:bg-primary-700 transition-colors"
+          {/* Desktop nav */}
+          <div className="hidden lg:flex flex-1 items-center justify-end gap-7 pr-6">
+            {NAV_LINKS.map((link) => (
+              <Link
+                key={link.href}
+                href={link.href}
+                className="text-[13px] font-bold tracking-wider uppercase text-gray-700
+                           hover:text-primary-600 transition-colors"
               >
-                <Phone className="h-5 w-5" />
-                <span>(940) 305-2372</span>
-              </a>
-              <Link href="/contact" className="btn-primary">
-                Get Free Estimate
+                {link.label}
               </Link>
-            </div>
+            ))}
+            <a
+              href="tel:940-305-2372"
+              className="flex items-center gap-2 bg-primary-500 text-white font-bold px-6 py-3
+                         rounded-full hover:bg-primary-600 transition-colors shadow-lg
+                         shadow-primary-500/30"
+            >
+              <Phone className="h-4 w-4" />
+              <span>(940) 305-2372</span>
+            </a>
           </div>
 
-          {/* Mobile: call button always visible + menu toggle */}
-          <div className="flex items-center gap-2 lg:hidden">
+          {/* Mobile: call always visible + menu toggle */}
+          <div className="flex lg:hidden flex-1 items-center justify-end gap-2 pr-4">
             <a
               href="tel:940-305-2372"
               aria-label="Call (940) 305-2372"
-              className="flex items-center justify-center h-11 w-11 bg-primary-600 text-white rounded-full hover:bg-primary-700 transition-colors"
+              className="flex items-center justify-center h-11 w-11 bg-primary-500 text-white
+                         rounded-full hover:bg-primary-600 transition-colors"
             >
               <Phone className="h-5 w-5" />
             </a>
@@ -73,33 +104,22 @@ export default function Navigation() {
           </div>
         </div>
 
-        {/* Mobile Menu */}
+        {/* Mobile menu */}
         {isOpen && (
-          <div className="lg:hidden bg-white border-t border-gray-200">
-            <div className="py-4 space-y-3">
-              <Link href="/" className="block px-4 py-2 text-gray-700 hover:bg-primary-50 hover:text-primary-600 font-medium">
-                Home
-              </Link>
-              <Link href="/services" className="block px-4 py-2 text-gray-700 hover:bg-primary-50 hover:text-primary-600 font-medium">
-                Services
-              </Link>
-              <Link href="/portfolio" className="block px-4 py-2 text-gray-700 hover:bg-primary-50 hover:text-primary-600 font-medium">
-                Portfolio
-              </Link>
-              <Link href="/about" className="block px-4 py-2 text-gray-700 hover:bg-primary-50 hover:text-primary-600 font-medium">
-                About
-              </Link>
-              <Link href="/warranties" className="block px-4 py-2 text-gray-700 hover:bg-primary-50 hover:text-primary-600 font-medium">
-                Warranties
-              </Link>
-              <Link href="/contact" className="block px-4 py-2 text-gray-700 hover:bg-primary-50 hover:text-primary-600 font-medium">
-                Contact
-              </Link>
-              <div className="px-4 py-4 border-t border-gray-200">
-                <a href="tel:940-305-2372" className="flex items-center space-x-2 text-primary-600 font-bold mb-4">
-                  <Phone className="h-5 w-5" />
-                  <span>(940) 305-2372</span>
-                </a>
+          <div className="lg:hidden border-t border-gray-200">
+            <div className="py-3">
+              {NAV_LINKS.map((link) => (
+                <Link
+                  key={link.href}
+                  href={link.href}
+                  onClick={() => setIsOpen(false)}
+                  className="block px-6 py-3 text-sm font-bold tracking-wider uppercase
+                             text-gray-700 hover:bg-primary-50 hover:text-primary-600"
+                >
+                  {link.label}
+                </Link>
+              ))}
+              <div className="px-6 py-4 border-t border-gray-200">
                 <Link href="/contact" className="btn-primary w-full justify-center">
                   Get Free Estimate
                 </Link>
@@ -108,6 +128,6 @@ export default function Navigation() {
           </div>
         )}
       </div>
-    </nav>
+    </header>
   )
 }

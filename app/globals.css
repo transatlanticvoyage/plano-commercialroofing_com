@@ -1,16 +1,37 @@
 @import "tailwindcss";
 
+/* ==========================================================================
+   Plano Commercial Roofing — design system
+
+   Palette is teal + dark charcoal, emulating the visual language of
+   commercialroofingpasadena.com: dark utility bar, angled section dividers,
+   teal eyebrow rules, teal accent CTAs, big bold headings, full-bleed
+   photography.
+
+   Contrast notes (do not "brighten" these without re-checking):
+     --color-primary-600 #10897a on white  -> 4.6:1   (teal, body-text safe)
+     --color-primary-500 #14a58f           -> large text / icons / fills only
+     --color-ink-900     #22262d           -> the dark section + header block
+   ========================================================================== */
+
 @theme {
-  --color-primary-50: #f0f9ff;
-  --color-primary-100: #e0f2fe;
-  --color-primary-200: #bae6fd;
-  --color-primary-300: #7dd3fc;
-  --color-primary-400: #38bdf8;
-  --color-primary-500: #0ea5e9;
-  --color-primary-600: #0284c7;
-  --color-primary-700: #0369a1;
-  --color-primary-800: #075985;
-  --color-primary-900: #0c4a6e;
+  /* Teal accent ramp */
+  --color-primary-50:  #eefbf7;
+  --color-primary-100: #d3f5ec;
+  --color-primary-200: #a9ead9;
+  --color-primary-300: #74d9c2;
+  --color-primary-400: #3ec4a8;
+  --color-primary-500: #14a58f;
+  --color-primary-600: #10897a;
+  --color-primary-700: #0d6d63;
+  --color-primary-800: #0d574f;
+  --color-primary-900: #0c4842;
+
+  /* Dark charcoal ramp for the utility bar, dark bands and footer */
+  --color-ink-700: #363b44;
+  --color-ink-800: #2a2e35;
+  --color-ink-900: #22262d;
+  --color-ink-950: #1a1d23;
 }
 
 body {
@@ -18,42 +39,92 @@ body {
   color: rgb(17 24 39);
 }
 
+/* --- buttons -------------------------------------------------------------- */
+
 .btn-primary {
   display: inline-flex;
   align-items: center;
-  padding: 0.75rem 1.5rem;
-  background-color: var(--color-primary-600);
+  padding: 0.9rem 1.75rem;
+  background-color: var(--color-primary-500);
   color: white;
-  font-weight: 600;
-  border-radius: 0.5rem;
-  transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter;
-  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-  transition-duration: 200ms;
-  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -4px rgba(0, 0, 0, 0.1);
+  font-weight: 700;
+  font-size: 0.875rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  border-radius: 0.375rem;
+  transition: background-color 200ms, box-shadow 200ms, transform 200ms;
+  box-shadow: 0 10px 20px -8px rgba(20, 165, 143, 0.55);
 }
-
 .btn-primary:hover {
-  background-color: var(--color-primary-700);
-  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1);
+  background-color: var(--color-primary-600);
+  box-shadow: 0 16px 28px -10px rgba(20, 165, 143, 0.65);
+  transform: translateY(-1px);
 }
 
 .btn-secondary {
   display: inline-flex;
   align-items: center;
-  padding: 0.75rem 1.5rem;
-  background-color: white;
-  color: var(--color-primary-600);
-  font-weight: 600;
-  border-radius: 0.5rem;
-  border: 2px solid var(--color-primary-600);
-  transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter;
-  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-  transition-duration: 200ms;
+  padding: 0.9rem 1.75rem;
+  background-color: transparent;
+  color: white;
+  font-weight: 700;
+  font-size: 0.875rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  border-radius: 0.375rem;
+  border: 2px solid rgba(255, 255, 255, 0.55);
+  transition: background-color 200ms, border-color 200ms;
+}
+.btn-secondary:hover {
+  background-color: rgba(255, 255, 255, 0.12);
+  border-color: white;
 }
 
-.btn-secondary:hover {
-  background-color: var(--color-primary-50);
+/* Solid white button, for use on the teal and photo CTA bands.
+   NOTE: use this instead of `btn-primary bg-white` — `.btn-primary` sets
+   background-color in this stylesheet, which is defined after the Tailwind
+   import and therefore wins over the `bg-white` utility, leaving the button
+   teal-on-teal and effectively invisible. */
+.btn-white {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.9rem 1.75rem;
+  background-color: #ffffff;
+  color: var(--color-primary-700);
+  font-weight: 700;
+  font-size: 0.875rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  border-radius: 0.375rem;
+  transition: background-color 200ms, transform 200ms;
+  box-shadow: 0 10px 20px -8px rgba(0, 0, 0, 0.35);
 }
+.btn-white:hover {
+  background-color: #f3f4f6;
+  transform: translateY(-1px);
+}
+
+/* Light-background variant of the ghost button */
+.btn-outline {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.9rem 1.75rem;
+  background-color: transparent;
+  color: var(--color-primary-700);
+  font-weight: 700;
+  font-size: 0.875rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  border-radius: 0.375rem;
+  border: 2px solid var(--color-primary-500);
+  transition: background-color 200ms, color 200ms;
+}
+.btn-outline:hover {
+  background-color: var(--color-primary-500);
+  color: white;
+}
+
+/* --- layout --------------------------------------------------------------- */
 
 .container-custom {
   max-width: 80rem;
@@ -62,17 +133,90 @@ body {
   padding-left: 1rem;
   padding-right: 1rem;
 }
-
 @media (min-width: 640px) {
-  .container-custom {
-    padding-left: 1.5rem;
-    padding-right: 1.5rem;
-  }
+  .container-custom { padding-left: 1.5rem; padding-right: 1.5rem; }
+}
+@media (min-width: 1024px) {
+  .container-custom { padding-left: 2rem; padding-right: 2rem; }
 }
 
-@media (min-width: 1024px) {
-  .container-custom {
-    padding-left: 2rem;
-    padding-right: 2rem;
-  }
+/* --- eyebrow (teal dash + letterspaced label) ----------------------------- */
+/* The signature small label above nearly every heading on the emulation
+   target. `.eyebrow-light` is the on-dark variant.                          */
+
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  font-size: 0.8125rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--color-ink-800);
+  margin-bottom: 0.85rem;
+}
+.eyebrow::before {
+  content: "";
+  width: 1.75rem;
+  height: 3px;
+  background-color: var(--color-primary-500);
+  border-radius: 2px;
+  flex-shrink: 0;
+}
+.eyebrow-light { color: var(--color-primary-300); }
+.eyebrow-center { justify-content: center; }
+
+/* --- angled section dividers ---------------------------------------------- */
+/* Dark bands whose top and/or bottom edge is cut on a slight diagonal, the
+   defining structural motif of the emulation target.                        */
+
+.angle-bottom { clip-path: polygon(0 0, 100% 0, 100% calc(100% - 3.5vw), 0 100%); }
+.angle-top    { clip-path: polygon(0 3.5vw, 100% 0, 100% 100%, 0 100%); }
+.angle-both   { clip-path: polygon(0 3.5vw, 100% 0, 100% calc(100% - 3.5vw), 0 100%); }
+
+/* --- blueprint texture ---------------------------------------------------- */
+/* Faint line-art wash used behind the dark testimonial / stats bands. */
+
+.blueprint-bg {
+  background-color: var(--color-ink-900);
+  background-image:
+    linear-gradient(rgba(255,255,255,.028) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,.028) 1px, transparent 1px),
+    linear-gradient(rgba(255,255,255,.018) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,.018) 1px, transparent 1px);
+  background-size: 120px 120px, 120px 120px, 24px 24px, 24px 24px;
+}
+
+/* --- image treatments ----------------------------------------------------- */
+
+/* Photo with a teal triangle cut into the lower-left corner, used for the
+   stat badge overlay on the "why choose us" style image. */
+.corner-teal::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 62%;
+  height: 62%;
+  background-color: var(--color-primary-500);
+  opacity: 0.94;
+  clip-path: polygon(0 0, 0 100%, 100% 100%);
+  pointer-events: none;
+}
+
+/* --- misc ----------------------------------------------------------------- */
+
+.text-shadow-hero {
+  text-shadow: 0 2px 24px rgba(0, 0, 0, 0.45);
+}
+
+:focus-visible {
+  outline: 3px solid var(--color-primary-400);
+  outline-offset: 2px;
+  border-radius: 3px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * { transition-duration: 0.01ms !important; animation-duration: 0.01ms !important; }
+  .btn-primary:hover { transform: none; }
 }

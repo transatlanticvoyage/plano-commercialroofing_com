@@ -23,15 +23,33 @@ export default function About() {
     <>
       <Navigation />
 
-      {/* Hero Section */}
-      <section className="relative pt-20 pb-16 bg-gradient-to-br from-primary-50 to-white overflow-hidden">
-        <div className="absolute inset-0 bg-grid-pattern opacity-5"></div>
-        <div className="container-custom pt-16 relative">
-          <div className="max-w-4xl mx-auto text-center">
-            <h1 className="text-5xl lg:text-6xl font-bold text-gray-900 mb-6">
+      {/* Page Hero.
+          Decorative backdrop is a CSS background rather than <Image fill>:
+          the <Image fill> element here loaded and laid out correctly
+          (naturalWidth set, opacity 1, full-size rect) but never actually
+          painted — it stayed invisible even when forced to z-index 9999 with
+          an outline. A CSS background renders reliably and needs no alt text,
+          which is correct for a purely decorative backdrop anyway. Content
+          images further down these pages still use <Image> and work fine. */}
+      <section
+        className="relative bg-ink-900 pt-[150px] lg:pt-[210px] pb-28 lg:pb-36 angle-bottom overflow-hidden bg-cover bg-center"
+        style={{ backgroundImage: `url('/images/plano-commercial-roofing-company-story.webp')` }}
+      >
+        {/* backdrop is a CSS background on the section -- see note there */}
+        <div
+          className="absolute inset-0"
+          style={{
+            backgroundImage:
+              'linear-gradient(to right, rgba(26,29,35,0.90) 0%, rgba(26,29,35,0.72) 45%, rgba(26,29,35,0.35) 100%)',
+          }}
+        />
+        <div className="container-custom relative">
+          <div className="max-w-3xl">
+            <p className="eyebrow eyebrow-light">Who We Are</p>
+            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-white leading-[1.08] mb-6 text-shadow-hero">
               About Plano Commercial Roofing
             </h1>
-            <p className="text-xl text-gray-700">
+            <p className="text-lg text-gray-300 leading-relaxed">
               For over 20 years, we&apos;ve been the trusted roofing partner for businesses across North Texas,
               delivering quality, reliability, and peace of mind with every project.
             </p>
@@ -44,7 +62,8 @@ export default function About() {
         <div className="container-custom">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div>
-              <h2 className="text-4xl font-bold text-gray-900 mb-6">
+              <p className="eyebrow">Our Story</p>
+              <h2 className="text-3xl lg:text-[2.6rem] font-extrabold text-gray-900 leading-tight mb-6">
                 Building Trust, One Roof at a Time
               </h2>
               <p className="text-lg text-gray-700 mb-4">
@@ -63,12 +82,12 @@ export default function About() {
                 receive the best warranties and workmanship in the industry.
               </p>
               <div className="grid grid-cols-2 gap-6">
-                <div className="border-l-4 border-primary-600 pl-4">
-                  <div className="text-3xl font-bold text-primary-600 mb-1">500+</div>
+                <div className="border-l-4 border-primary-500 pl-4">
+                  <div className="text-3xl font-extrabold text-primary-500 mb-1">500+</div>
                   <p className="text-gray-600">Projects Completed</p>
                 </div>
-                <div className="border-l-4 border-primary-600 pl-4">
-                  <div className="text-3xl font-bold text-primary-600 mb-1">20+</div>
+                <div className="border-l-4 border-primary-500 pl-4">
+                  <div className="text-3xl font-extrabold text-primary-500 mb-1">20+</div>
                   <p className="text-gray-600">Years of Excellence</p>
                 </div>
               </div>
@@ -91,8 +110,8 @@ export default function About() {
       <section className="py-20 bg-gray-50">
         <div className="container-custom">
           <div className="text-center mb-12">
-            <h2 className="text-4xl font-bold text-gray-900 mb-4">Our Mission &amp; Values</h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+            <h2 className="text-3xl lg:text-[2.6rem] font-extrabold text-gray-900 leading-tight mb-4">Our Mission &amp; Values</h2>
+            <p className="text-lg text-gray-600 max-w-3xl mx-auto">
               Guided by principles that put our clients first and quality above all else
             </p>
           </div>
@@ -130,9 +149,11 @@ export default function About() {
                 description: 'Comprehensive safety programs and OSHA compliance ensure protection for our team and your property.'
               }
             ].map((item, index) => (
-              <div key={index} className="bg-white rounded-lg shadow-lg p-6">
-                <item.icon className="h-12 w-12 text-primary-600 mb-4" />
-                <h3 className="text-xl font-semibold text-gray-900 mb-3">{item.title}</h3>
+              <div key={index} className="bg-white rounded-lg shadow-sm hover:shadow-xl transition-all p-8 border-b-4 border-transparent hover:border-primary-500">
+                <div className="w-14 h-14 bg-primary-50 rounded-lg flex items-center justify-center mb-5">
+                  <item.icon className="h-7 w-7 text-primary-600" />
+                </div>
+                <h3 className="text-xl font-bold text-gray-900 mb-3">{item.title}</h3>
                 <p className="text-gray-600">{item.description}</p>
               </div>
             ))}
@@ -160,8 +181,8 @@ export default function About() {
       <section className="py-20 bg-white">
         <div className="container-custom">
           <div className="text-center mb-12">
-            <h2 className="text-4xl font-bold text-gray-900 mb-4">Leadership Team</h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+            <h2 className="text-3xl lg:text-[2.6rem] font-extrabold text-gray-900 leading-tight mb-4">Leadership Team</h2>
+            <p className="text-lg text-gray-600 max-w-3xl mx-auto">
               Experienced professionals dedicated to your roofing success
             </p>
           </div>
@@ -194,7 +215,7 @@ export default function About() {
                   <Users className="h-16 w-16 text-gray-400" />
                 </div>
                 <h3 className="text-xl font-semibold text-gray-900 mb-1">{member.name}</h3>
-                <p className="text-primary-600 font-medium mb-2">{member.title}</p>
+                <p className="text-primary-600 font-semibold mb-2">{member.title}</p>
                 <p className="text-sm text-gray-600">{member.experience}</p>
               </div>
             ))}
@@ -206,8 +227,8 @@ export default function About() {
       <section className="py-20 bg-gray-50">
         <div className="container-custom">
           <div className="text-center mb-12">
-            <h2 className="text-4xl font-bold text-gray-900 mb-4">Certifications & Affiliations</h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+            <h2 className="text-3xl lg:text-[2.6rem] font-extrabold text-gray-900 leading-tight mb-4">Certifications & Affiliations</h2>
+            <p className="text-lg text-gray-600 max-w-3xl mx-auto">
               Industry-recognized certifications that demonstrate our commitment to excellence
             </p>
           </div>
@@ -231,9 +252,9 @@ export default function About() {
                 description: 'Full safety compliance and training'
               }
             ].map((cert, index) => (
-              <div key={index} className="bg-white rounded-lg shadow-md p-6 text-center">
-                <Award className="h-12 w-12 text-primary-600 mx-auto mb-4" />
-                <h3 className="text-lg font-semibold text-gray-900 mb-2">{cert.title}</h3>
+              <div key={index} className="bg-white rounded-lg shadow-sm hover:shadow-xl transition-all p-7 text-center border-b-4 border-transparent hover:border-primary-500">
+                <Award className="h-11 w-11 text-primary-500 mx-auto mb-4" />
+                <h3 className="text-lg font-bold text-gray-900 mb-2">{cert.title}</h3>
                 <p className="text-sm text-gray-600">{cert.description}</p>
               </div>
             ))}
@@ -245,7 +266,7 @@ export default function About() {
       <section className="py-20 bg-white">
         <div className="container-custom">
           <div className="max-w-4xl mx-auto">
-            <h2 className="text-4xl font-bold text-gray-900 mb-8 text-center">
+            <h2 className="text-3xl lg:text-[2.6rem] font-extrabold text-gray-900 leading-tight mb-8 text-center">
               Why Businesses Choose Us
             </h2>
             <div className="grid md:grid-cols-2 gap-6">
@@ -262,7 +283,7 @@ export default function About() {
                 'Environmentally responsible disposal and recycling'
               ].map((feature, index) => (
                 <div key={index} className="flex items-start gap-3">
-                  <CheckCircle className="h-6 w-6 text-primary-600 flex-shrink-0 mt-0.5" />
+                  <CheckCircle className="h-6 w-6 text-primary-500 flex-shrink-0 mt-0.5" />
                   <span className="text-gray-700">{feature}</span>
                 </div>
               ))}
@@ -276,7 +297,8 @@ export default function About() {
         <div className="container-custom">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div>
-              <h2 className="text-4xl font-bold text-gray-900 mb-6">
+              <p className="eyebrow">Local Roots</p>
+              <h2 className="text-3xl lg:text-[2.6rem] font-extrabold text-gray-900 leading-tight mb-6">
                 Committed to Our Community
               </h2>
               <p className="text-lg text-gray-700 mb-4">
@@ -297,7 +319,7 @@ export default function About() {
                   'Storm Relief Volunteer'
                 ].map((item, index) => (
                   <div key={index} className="flex items-center gap-2">
-                    <Star className="h-5 w-5 text-primary-600" />
+                    <Star className="h-5 w-5 text-primary-500" />
                     <span className="text-gray-700">{item}</span>
                   </div>
                 ))}
@@ -318,22 +340,28 @@ export default function About() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-20 bg-primary-600">
-        <div className="container-custom text-center">
-          <h2 className="text-4xl font-bold text-white mb-4">
+      <section className="relative py-20 lg:py-24 bg-primary-600 overflow-hidden">
+        <Image
+          src="/images/plano-roofing-crew-group-rooftop.webp"
+          alt="A commercial roofing crew gathered around rooftop plans on a job site"
+          title="A commercial roofing crew gathered around rooftop plans on a job site"
+          fill sizes="100vw" className="object-cover opacity-15"
+        />
+        <div className="container-custom relative text-center">
+          <h2 className="text-3xl lg:text-[2.6rem] font-extrabold text-white leading-tight mb-4">
             Experience the Plano Commercial Roofing Difference
           </h2>
-          <p className="text-xl text-primary-100 mb-8 max-w-2xl mx-auto">
+          <p className="text-lg text-primary-50 mb-9 max-w-2xl mx-auto">
             Join hundreds of satisfied businesses who trust us with their roofing needs.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link href="/contact" className="btn-primary bg-white text-primary-600 hover:bg-gray-100">
+            <Link href="/contact" className="btn-white">
               Get Your Free Consultation
-              <ArrowRight className="ml-2 h-5 w-5" />
+              <ArrowRight className="ml-2 h-4 w-4" />
             </Link>
-            <Link href="/portfolio" className="btn-secondary bg-transparent text-white border-white hover:bg-white/10">
+            <Link href="/portfolio" className="btn-secondary">
               View Our Work
-              <ArrowRight className="ml-2 h-5 w-5" />
+              <ArrowRight className="ml-2 h-4 w-4" />
             </Link>
           </div>
         </div>

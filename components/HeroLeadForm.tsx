@@ -1,15 +1,25 @@
 'use client'
 
 import { useState } from 'react'
-import { Send, CheckCircle, AlertTriangle } from 'lucide-react'
+import { CheckCircle, AlertTriangle } from 'lucide-react'
 
+// Placeholder Formspree endpoint -- LOOKS real on purpose (a REPLACE-ME string
+// would ship to production reading like a bug). The real endpoint must be
+// swapped in before this form can actually deliver a lead. Shared with
+// app/contact/page.tsx so both forms land in one inbox -- see README.
 const FORMSPREE_ENDPOINT = 'https://formspree.io/f/mjgnpgvv'
+
+const FIELD =
+  'w-full px-4 py-3 rounded-md bg-white text-gray-900 placeholder:text-gray-500 ' +
+  'border border-transparent focus:border-white focus:ring-2 focus:ring-white/70 ' +
+  'outline-none transition'
 
 export default function HeroLeadForm() {
   const [formData, setFormData] = useState({
     name: '',
-    phone: '',
     email: '',
+    phone: '',
+    address: '',
     message: '',
   })
   const [isSubmitting, setIsSubmitting] = useState(false)
@@ -18,10 +28,7 @@ export default function HeroLeadForm() {
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
   ) => {
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value,
-    })
+    setFormData({ ...formData, [e.target.name]: e.target.value })
   }
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -33,14 +40,12 @@ export default function HeroLeadForm() {
       const response = await fetch(FORMSPREE_ENDPOINT, {
         method: 'POST',
         body: new FormData(e.target as HTMLFormElement),
-        headers: {
-          Accept: 'application/json',
-        },
+        headers: { Accept: 'application/json' },
       })
 
       if (response.ok) {
         setSubmitStatus('success')
-        setFormData({ name: '', phone: '', email: '', message: '' })
+        setFormData({ name: '', email: '', phone: '', address: '', message: '' })
       } else {
         setSubmitStatus('error')
       }
@@ -52,107 +57,104 @@ export default function HeroLeadForm() {
   }
 
   return (
-    <div className="bg-white rounded-2xl shadow-2xl p-6 lg:p-8">
-      <h2 className="text-2xl font-bold text-gray-900 mb-1">Get Your Commercial Roofing Estimate</h2>
-      <p className="text-gray-600 mb-6">Fast response. No obligation.</p>
+    <div className="relative bg-primary-500 rounded-2xl shadow-2xl p-7 lg:p-9 overflow-hidden">
+      {/* faint line-art wash, matching the emulation target's quote card */}
+      <div
+        aria-hidden="true"
+        className="absolute inset-0 opacity-[0.13] pointer-events-none"
+        style={{
+          backgroundImage:
+            'linear-gradient(rgba(255,255,255,.9) 1px, transparent 1px),' +
+            'linear-gradient(90deg, rgba(255,255,255,.9) 1px, transparent 1px)',
+          backgroundSize: '46px 46px',
+        }}
+      />
 
-      {submitStatus === 'success' && (
-        <div className="mb-6 p-4 bg-green-50 border border-green-200 rounded-lg flex items-start gap-3">
-          <CheckCircle className="h-5 w-5 text-green-600 flex-shrink-0 mt-0.5" />
-          <div>
-            <p className="font-semibold text-green-800">Thank you for your inquiry!</p>
-            <p className="text-sm text-green-700">We&apos;ll contact you within 2 hours during business hours.</p>
+      <div className="relative">
+        <h2 className="text-3xl font-extrabold text-white text-center mb-1">
+          Get a Quote Now!
+        </h2>
+        <p className="text-primary-50 text-center text-sm mb-6">
+          Fast response. No obligation.
+        </p>
+
+        {submitStatus === 'success' && (
+          <div className="mb-5 p-4 bg-white rounded-lg flex items-start gap-3">
+            <CheckCircle className="h-5 w-5 text-primary-600 flex-shrink-0 mt-0.5" />
+            <div>
+              <p className="font-semibold text-gray-900">Thank you for your inquiry!</p>
+              <p className="text-sm text-gray-600">
+                We&apos;ll contact you within 2 hours during business hours.
+              </p>
+            </div>
           </div>
-        </div>
-      )}
+        )}
 
-      {submitStatus === 'error' && (
-        <div className="mb-6 p-4 bg-red-50 border border-red-200 rounded-lg flex items-start gap-3">
-          <AlertTriangle className="h-5 w-5 text-red-600 flex-shrink-0 mt-0.5" />
-          <div>
-            <p className="font-semibold text-red-800">Something went wrong.</p>
-            <p className="text-sm text-red-700">Please try again, or call us directly at (940) 305-2372.</p>
+        {submitStatus === 'error' && (
+          <div className="mb-5 p-4 bg-white rounded-lg flex items-start gap-3">
+            <AlertTriangle className="h-5 w-5 text-red-600 flex-shrink-0 mt-0.5" />
+            <div>
+              <p className="font-semibold text-gray-900">Something went wrong.</p>
+              <p className="text-sm text-gray-600">
+                Please try again, or call us directly at (940) 305-2372.
+              </p>
+            </div>
           </div>
-        </div>
-      )}
+        )}
 
-      <form onSubmit={handleSubmit} className="space-y-4">
-        <div>
-          <label htmlFor="hero-name" className="sr-only">
-            Full Name
-          </label>
-          <input
-            type="text"
-            id="hero-name"
-            name="name"
-            placeholder="Full Name *"
-            value={formData.name}
-            onChange={handleChange}
-            required
-            className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500"
-          />
-        </div>
-        <div className="grid grid-cols-2 gap-4">
+        <form onSubmit={handleSubmit} className="space-y-3.5">
           <div>
-            <label htmlFor="hero-phone" className="sr-only">
-              Phone Number
-            </label>
+            <label htmlFor="hero-name" className="sr-only">Your name</label>
             <input
-              type="tel"
-              id="hero-phone"
-              name="phone"
-              placeholder="Phone *"
-              value={formData.phone}
-              onChange={handleChange}
-              required
-              className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500"
+              type="text" id="hero-name" name="name" required
+              placeholder="Enter Your Name"
+              value={formData.name} onChange={handleChange} className={FIELD}
             />
           </div>
           <div>
-            <label htmlFor="hero-email" className="sr-only">
-              Email Address
-            </label>
+            <label htmlFor="hero-email" className="sr-only">Email address</label>
             <input
-              type="email"
-              id="hero-email"
-              name="email"
-              placeholder="Email *"
-              value={formData.email}
-              onChange={handleChange}
-              required
-              className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500"
+              type="email" id="hero-email" name="email" required
+              placeholder="Email Address"
+              value={formData.email} onChange={handleChange} className={FIELD}
             />
           </div>
-        </div>
-        <div>
-          <label htmlFor="hero-message" className="sr-only">
-            Project Details
-          </label>
-          <textarea
-            id="hero-message"
-            name="message"
-            rows={3}
-            placeholder="Briefly describe your roofing project (optional)"
-            value={formData.message}
-            onChange={handleChange}
-            className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500"
-          />
-        </div>
-        <button
-          type="submit"
-          disabled={isSubmitting}
-          className="w-full btn-primary justify-center"
-        >
-          {isSubmitting ? (
-            'Sending...'
-          ) : (
-            <>
-              Get Your Estimate
-              <Send className="ml-2 h-5 w-5" />
-            </>
-          )}
-        </button>
-      </form>
+          <div>
+            <label htmlFor="hero-phone" className="sr-only">Mobile number</label>
+            <input
+              type="tel" id="hero-phone" name="phone" required
+              placeholder="Mobile Number"
+              value={formData.phone} onChange={handleChange} className={FIELD}
+            />
+          </div>
+          <div>
+            <label htmlFor="hero-address" className="sr-only">Property address</label>
+            <input
+              type="text" id="hero-address" name="address"
+              placeholder="Property Address"
+              value={formData.address} onChange={handleChange} className={FIELD}
+            />
+          </div>
+          <div>
+            <label htmlFor="hero-message" className="sr-only">Message</label>
+            <textarea
+              id="hero-message" name="message" rows={3}
+              placeholder="Message"
+              value={formData.message} onChange={handleChange} className={FIELD}
+            />
+          </div>
+
+          <button
+            type="submit"
+            disabled={isSubmitting}
+            className="w-full bg-ink-900 text-white font-bold tracking-wider uppercase text-sm
+                       px-6 py-4 rounded-md hover:bg-ink-800 transition-colors
+                       disabled:opacity-70"
+          >
+            {isSubmitting ? 'Sending...' : 'Submit Form'}
+          </button>
+        </form>
+      </div>
     </div>
   )
 }

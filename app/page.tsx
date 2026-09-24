@@ -4,7 +4,7 @@ import HeroLeadForm from '@/components/HeroLeadForm'
 import Link from 'next/link'
 import Image from 'next/image'
 import {
-  Shield, Award, CheckCircle, ArrowRight, Star, Phone,
+  Shield, Award, CheckCircle, ArrowRight, Phone,
   ThermometerSun, Droplets, Wind, Layers, Wrench, Siren, Sun,
 } from 'lucide-react'
 
@@ -32,24 +32,6 @@ const CLIMATE = [
     icon: Droplets,
     title: 'Ponding and Drainage',
     body: 'Flat and low-slope commercial roofs are unforgiving about drainage. A drain that is slightly undersized, or a low spot never corrected during construction, turns into standing water after every heavy DFW downpour.',
-  },
-]
-
-const TESTIMONIALS = [
-  {
-    name: 'Michael Thompson',
-    company: 'Thompson Property Management',
-    text: 'Outstanding service from start to finish. They completed our 50,000 sq ft TPO installation on time and under budget.',
-  },
-  {
-    name: 'Sarah Chen',
-    company: 'Retail Solutions Inc.',
-    text: 'Their emergency response team saved us after storm damage. Professional, fast, and reliable.',
-  },
-  {
-    name: 'David Martinez',
-    company: 'DFW Commercial Properties',
-    text: "We've used them for multiple properties. Consistently excellent work and great communication.",
   },
 ]
 
@@ -375,44 +357,6 @@ export default function Home() {
                 className="object-cover"
               />
             </div>
-          </div>
-        </div>
-      </section>
-
-      {/* ======================================================= TESTIMONIALS */}
-      <section className="bg-ink-900 blueprint-bg py-20 lg:py-24">
-        <div className="container-custom">
-          <div className="text-center max-w-3xl mx-auto mb-14">
-            <p className="eyebrow eyebrow-light eyebrow-center">Testimonials</p>
-            <h2 className="text-3xl lg:text-[2.6rem] font-extrabold text-white leading-tight mb-4">
-              What Our Clients Say
-            </h2>
-            <p className="text-lg text-gray-400">
-              Don&apos;t just take our word for it &mdash; hear from property managers
-              and business owners we&apos;ve served.
-            </p>
-          </div>
-
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-7">
-            {TESTIMONIALS.map((t) => (
-              <div
-                key={t.name}
-                className="bg-white/[0.045] border border-white/10 rounded-lg p-7 backdrop-blur-sm"
-              >
-                <div className="flex mb-4">
-                  {[...Array(5)].map((_, i) => (
-                    <Star key={i} className="h-4 w-4 text-primary-400 fill-current" />
-                  ))}
-                </div>
-                <p className="text-gray-300 mb-5 leading-relaxed italic">
-                  &ldquo;{t.text}&rdquo;
-                </p>
-                <div className="pt-4 border-t border-white/10">
-                  <p className="font-bold text-white">{t.name}</p>
-                  <p className="text-sm text-primary-400">{t.company}</p>
-                </div>
-              </div>
-            ))}
           </div>
         </div>
       </section>

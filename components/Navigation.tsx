@@ -2,7 +2,7 @@
 
 import { useState } from 'react'
 import Link from 'next/link'
-import { Menu, X, Phone, Mail, MapPin, Clock, Building2 } from 'lucide-react'
+import { Menu, X, Phone, Mail, Clock, Building2 } from 'lucide-react'
 
 // Drives both the desktop nav and the mobile menu.
 // /warranties and /portfolio were removed — neither page exists and both
@@ -20,7 +20,7 @@ export default function Navigation() {
 
   return (
     <header className="fixed w-full z-50">
-      {/* Utility bar -- email / address / hours, hidden on small screens */}
+      {/* Utility bar -- email / hours, hidden on small screens */}
       <div className="hidden lg:block bg-ink-900 text-gray-300">
         <div className="container-custom">
           <div className="flex items-center justify-center gap-8 h-11 text-[13px]">
@@ -31,11 +31,6 @@ export default function Navigation() {
               <Mail className="h-4 w-4 text-primary-400" />
               info@planocommercialroofing.com
             </a>
-            <span className="h-4 w-px bg-white/15" />
-            <span className="flex items-center gap-2">
-              <MapPin className="h-4 w-4 text-primary-400" />
-              2929 Custer Rd, Plano, TX 75075
-            </span>
             <span className="h-4 w-px bg-white/15" />
             <span className="flex items-center gap-2">
               <Clock className="h-4 w-4 text-primary-400" />

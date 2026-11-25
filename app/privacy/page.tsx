@@ -55,9 +55,8 @@ export default function Privacy() {
 
           <h2 className="text-2xl font-extrabold text-gray-900 mt-10 mb-3">Cookies and tracking</h2>
           <p className="text-gray-700 mb-4">
-            This site uses Plausible, a privacy-friendly analytics service that does not
-            use cookies and does not track individuals across sites. No advertising
-            cookies are set on this site.
+            This site does not use analytics or visitor-tracking scripts, and no
+            advertising cookies are set on this site.
           </p>
 
           <h2 className="text-2xl font-extrabold text-gray-900 mt-10 mb-3">How long we keep it</h2>

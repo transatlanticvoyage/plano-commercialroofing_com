@@ -1,6 +1,5 @@
 import Navigation from '@/components/Navigation'
 import Footer from '@/components/Footer'
-import HeroLeadForm from '@/components/HeroLeadForm'
 import Link from 'next/link'
 import Image from 'next/image'
 import {
@@ -72,7 +71,7 @@ export default function Home() {
         />
 
         <div className="container-custom relative">
-          <div className="grid lg:grid-cols-[1fr_460px] gap-12 lg:gap-16 items-start">
+          <div className="max-w-3xl">
             <div className="pt-4 lg:pt-10">
               <p className="eyebrow eyebrow-light">Plano Commercial Roofing</p>
               <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-white leading-[1.08] mb-6 text-shadow-hero">
@@ -116,10 +115,6 @@ export default function Home() {
                   24/7 Emergency Service
                 </span>
               </div>
-            </div>
-
-            <div className="lg:-mt-2">
-              <HeroLeadForm />
             </div>
           </div>
         </div>

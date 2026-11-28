@@ -1,5 +1,7 @@
 # plano-commercialroofing.com
 
+> **2026-11-27: the lead form was removed; this is now a calls-only site.** Any mention of a lead/contact/callback form, a Formspree endpoint, `HeroLeadForm` or `FORM_*` settings further down is historical.
+
 Commercial roofing contractor site for Plano, TX and the Dallas-Fort Worth
 Metroplex. A Next.js 16 app (App Router, Tailwind v4), **not** one of the
 static Python-built leadgen sites in this fleet — there is no `_tools/build.py`
